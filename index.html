@@ -10,11 +10,11 @@
         :root {
             --primary: #F9CF00;
             --primary-hover: #ffe55c;
-            --bg-dark: #000000;
-            --bg-card: #1a1a1a;
+            --bg-dark: #0C0D10;
+            --bg-card: rgba(255,255,255,0.05);
             --bg-search: #242424;
-            --text-main: #ffffff;
-            --text-muted: #999999;
+            --text-main: #F2F2F2;
+            --text-muted: rgba(255,255,255,0.4);
             --border-color: #333333;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -48,7 +48,7 @@
         .faq-icon { transition: transform 0.3s; font-size: 12px; }
         .faq-item.open .faq-icon { transform: rotate(180deg); }
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out; }
-        .faq-answer-inner { padding: 0 20px 18px; color: #ccc; font-size: 14px; }
+        .faq-answer-inner { padding: 0 20px 18px; color: rgba(255,255,255,0.6); font-size: 14px; }
         .faq-answer-inner ul, .faq-answer-inner ol { padding-left: 20px; margin: 8px 0; }
         .faq-answer-inner li { margin-bottom: 4px; }
         .faq-answer-inner strong { color: #eee; }
@@ -56,7 +56,7 @@
         table.info-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
         table.info-table th, table.info-table td { border: 1px solid var(--border-color); padding: 8px 10px; text-align: center; }
         table.info-table th { background: var(--bg-search); color: var(--primary); }
-        table.info-table td { color: #ccc; }
+        table.info-table td { color: rgba(255,255,255,0.6); }
 
         .placeholder-image { width: 100%; max-width: 500px; height: 180px; background: var(--bg-search); border: 2px dashed var(--border-color); display: flex; align-items: center; justify-content: center; margin: 12px 0; color: var(--text-muted); border-radius: 8px; font-size: 14px; }
 
