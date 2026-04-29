@@ -666,11 +666,20 @@ document.querySelectorAll('.category-section').forEach(function(s){
 
 navLinks.forEach(function(link){
     link.addEventListener('click',function(e){
-        e.preventDefault();
         var t=document.getElementById(this.getAttribute('href').substring(1));
-        if(t)window.scrollTo({top:t.offsetTop-20,behavior:'smooth'});
+        if(t){
+            e.preventDefault();
+            window.scrollTo({top:t.offsetTop-20,behavior:'smooth'});
+            history.pushState(null,null,this.getAttribute('href'));
+        }
     });
 });
+
+// 支持从外部页面通过锚点跳转定位
+if(window.location.hash){
+    var target=document.getElementById(window.location.hash.substring(1));
+    if(target) setTimeout(function(){window.scrollTo({top:target.offsetTop-20,behavior:'smooth'})},100);
+}
 </script>
 </body>
 </html>
