@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tripo Help Center</title>
+    <link rel="icon" type="image/png" href="images/help/1280X1280.webp">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #F9CF00;
+            --primary-hover: #ffe55c;
+            --bg-dark: #0C0D10;
+            --bg-card: rgba(255, 255, 255, 0.05);
+            --bg-search: #242424;
+            --text-main: #F2F2F2;
+            --text-muted: rgba(255, 255, 255, 0.4);
+            --border-color: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans', 'Noto Sans SC', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .header {
+            background: var(--bg-dark);
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .hero {
+            padding: 70px 20px 50px;
+            text-align: center;
+            background: var(--bg-dark);
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 24px;
+        }
+
+        .container {
+            max-width: 1060px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 40px;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 20px;
+            align-self: start;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 8px 14px;
+            color: var(--text-muted);
+            text-decoration: none;
+            border-radius: 6px;
+            margin-bottom: 4px;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: var(--bg-card);
+            color: var(--primary);
+        }
+
+        .category-section {
+            margin-bottom: 50px;
+        }
+
+        .category-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .sub-title {
+            font-size: 18px;
+            color: var(--text-main);
+            margin: 25px 0 12px;
+            font-weight: 600;
+        }
+
+        .faq-item {
+            margin-bottom: 10px;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 16px 20px;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: inherit;
+        }
+
+        .faq-question:hover {
+            color: var(--primary);
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+            font-size: 12px;
+        }
+
+        .faq-item.open .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease-out;
+        }
+
+        .faq-answer-inner {
+            padding: 0 20px 18px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+
+        .faq-answer-inner ul,
+        .faq-answer-inner ol {
+            padding-left: 20px;
+            margin: 8px 0;
+        }
+
+        .faq-answer-inner li {
+            margin-bottom: 4px;
+        }
+
+        .faq-answer-inner strong {
+            color: #eee;
+        }
+
+        .faq-answer-inner img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin: 12px 0;
+        }
+
+        table.info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 13px;
+        }
+
+        table.info-table th,
+        table.info-table td {
+            border: 1px solid var(--border-color);
+            padding: 8px 10px;
+            text-align: center;
+        }
+
+        table.info-table th {
+            background: var(--bg-search);
+            color: var(--primary);
+        }
+
+        table.info-table td {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .placeholder-image {
+            width: 100%;
+            max-width: 500px;
+            height: 180px;
+            background: var(--bg-search);
+            border: 2px dashed var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 12px 0;
+            color: var(--text-muted);
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .plugin-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .plugin-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: var(--bg-search);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--primary);
+            font-size: 14px;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .plugin-card:hover {
+            background: var(--bg-card);
+            border-color: var(--primary);
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        .plugin-card svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .plugin-tutorial {
+            margin-top: 20px;
+        }
+
+        .plugin-tutorial h3 {
+            font-size: 16px;
+            color: var(--primary);
+            margin: 20px 0 10px;
+        }
+
+        .plugin-tutorial h4 {
+            font-size: 14px;
+            color: var(--text-main);
+            margin: 15px 0 8px;
+        }
+
+        .plugin-tutorial p {
+            margin: 8px 0;
+        }
+
+        .plugin-tutorial img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+
+        .plugin-tutorial .req-list {
+            background: var(--bg-search);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .plugin-tutorial .faq-block {
+            background: var(--bg-search);
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin: 8px 0;
+            border-left: 3px solid var(--primary);
+        }
+
+        .plugin-tutorial .faq-block strong {
+            color: var(--primary);
+        }
+
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            font-size: 16px;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 13px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="#" class="logo"><img src="images/help/vast.webp" alt="Tripo" style="height:28px"></a>
+    </header>
+
+    <section class="hero">
+        <h1>Hi, 需要什么帮助？</h1>
+    </section>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <a href="#getting-started" class="nav-link active">入门指南</a>
+                <a href="#account" class="nav-link">账户设置</a>
+                <a href="#billing" class="nav-link">账单与支付</a>
+                <a href="#credits" class="nav-link">积分规则</a>
+                <a href="#features" class="nav-link">功能咨询</a>
+                <a href="#privacy" class="nav-link">隐私与政策</a>
+                <a href="#api" class="nav-link">API 与插件</a>
+                <a href="#migration" class="nav-link">资产迁移</a>
+                <a href="#cooperation" class="nav-link">合作</a>
+            </nav>
+        </aside>
+
+        <main id="faqMain">
+            <section class="category-section" id="getting-started">
+                <h2 class="category-title">入门指南</h2>
+                <div class="faq-item"><button class="faq-question">什么是Tripo？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Tripo 是 VAST 公司开发的 AI 驱动 3D 建模平台，能够在数秒内将文字描述和图片转换为高质量、可直接投入生产的 3D
+                            模型。基于先进的 3D 重建大模型技术，Tripo 帮助创作者、开发者和企业生成具有精细几何结构、PBR 物理材质和自然纹理的规范化 3D 资产——无需任何 3D
+                            建模专业知识。<br><br>无论您是在开发游戏、创建 AR/VR 体验，还是进行产品原型设计，Tripo 都能将传统需要数小时的 3D 创作流程缩短至几分钟。我们提供 Tripo
+                            Web（直观的网页端界面）和 Tripo API（企业级接入方案），灵活适配您的工作流程。</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">Tripo有哪些功能？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Tripo 提供一整套由 AI 驱动的 3D 创作工具：<br><br><strong>核心生成能力</strong>
+                            <ul>
+                                <li>文本生成 3D：通过自然语言描述直接生成 3D 模型</li>
+                                <li>图片生成 3D：将单张图片或草图转换为 3D 资产</li>
+                                <li>多视图生成 3D：基于 2–4 张参考图生成更高精度的 3D 模型</li>
+                            </ul><strong>支持不同行业需求</strong>
+                            <ul>
+                                <li>高精度模型：最高支持 200 万面，适用于 3D 打印与视觉艺术</li>
+                                <li>智能拓扑网络：2 秒极速生成干净、规范的布线</li>
+                            </ul><strong>3D全流程覆盖</strong>
+                            <ul>
+                                <li>专业级3D生图：平台内集成顶级 AI 生图模型</li>
+                                <li>纹理生成与编辑：自动生成高质量材质贴图，支持二次编辑</li>
+                                <li>部件智能拆分：自动识别并拆分模型为独立部件</li>
+                                <li>重拓扑：支持自定义面数，一键减面或切换为四边面</li>
+                                <li>绑骨与动画：一键添加标准骨骼结构</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">如何使用Tripo？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <ul>
+                                <li>访问平台：前往 <a href='https://studio.tripo3d.com/' target='_blank'>studio.tripo3d.com</a>
+                                    注册/登录</li>
+                                <li>选择模式：文生3D（输入描述）或图生3D（上传照片/草图）</li>
+                                <li>生成模型：点击"生成"——AI 在 10 秒至 2 分钟内完成建模</li>
+                                <li>优化编辑：使用"编辑"功能进行自动骨骼绑定、网格精修或提升纹理分辨率</li>
+                                <li>导出使用：选择格式（GLB/FBX/OBJ）下载完整 PBR 贴图包</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">Tripo 支持哪些 3D 文件格式？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Tripo 目前支持 6 种导出格式：<ul>
+                                <li><strong>GLB</strong> – 适用于 Web、AR/VR 和游戏引擎（内嵌纹理）</li>
+                                <li><strong>USD</strong> – 通用场景描述格式，适用于影视特效、动画</li>
+                                <li><strong>FBX</strong> – 游戏和 3D 动画软件的行业标准</li>
+                                <li><strong>OBJ</strong> – 通用 3D 编辑和基础 3D 打印兼容性格式</li>
+                                <li><strong>STL</strong> – 3D 打印标准格式（仅几何体）</li>
+                                <li><strong>3MF</strong> – 新一代 3D 打印格式，支持色彩和纹理信息</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="category-section" id="account">
+                <h2 class="category-title">账户设置</h2>
+                <div class="faq-item"><button class="faq-question">如何更改我的社区个人资料用户名？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <ul>
+                                <li>登录 Tripo 账户，点击右上角头像</li>
+                                <li>在下拉菜单中选择 "个人信息"</li>
+                                <li>点击当前用户名旁的 "编辑" 按钮</li>
+                                <li>输入新的用户名</li>
+                                <li>点击 "保存更改" – 如果用户名可用，将立即生效</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">如何注销账号？<span class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">如需<strong>永久删除</strong> Tripo 账号及所有相关数据，请发送邮件至 <a
+                                href='mailto:support@tripo3d.com'>support@tripo3d.com</a>，提供：<ol>
+                                <li>邮件主题填写"账号注销申请"</li>
+                                <li>您的账号注册手机号</li>
+                                <li>确认您了解所有数据将被永久删除且无法恢复</li>
+                            </ol><strong>注意：如果您有正在进行的订阅，请先取消订阅以避免后续扣款。我们将在 7 个工作日内处理。</strong></div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">我可以通过验证码登录 Tripo 吗？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Tripo
+                            支持手机验证码登录，无需记忆密码即可快速安全地访问账户。<br><br><strong>验证码登录步骤：</strong>
+                            <ul>
+                                <li>访问 <a href='https://studio.tripo3d.com/' target='_blank'>studio.tripo3d.com</a>
+                                    并点击"登录"</li>
+                                <li>选择"手机号登录" &#8594; "验证码登录"</li>
+                                <li>输入您注册时使用的手机号码</li>
+                                <li>查收短信中的 6 位数字验证码（有效期五分钟）</li>
+                                <li>输入验证码即可进入</li>
+                            </ul><strong>安全提示：</strong>验证码出于安全考虑会在短时间后失效，如过期请重新获取。如 2 分钟内未收到验证码，请检查垃圾短信。
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="category-section" id="billing">
+                <h2 class="category-title">账单与支付</h2>
+                <div class="sub-title">订阅</div>
+                <div class="faq-item"><button class="faq-question">哪个 Tripo AI 订阅方案适合我？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">如果您是初次探索 AI
+                            3D建模，可以从免费计划开始。如果您需要商业用途、私有资产和更高质量的输出，请根据使用量和生产需求升级到尝鲜版或专业版。</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">你们提供哪些价格和订阅方案？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">我们提供三种订阅方案，皆支持月度与年度订阅：<table class='info-table'>
+                                <thead>
+                                    <tr>
+                                        <th>套餐</th>
+                                        <th>每月积分</th>
+                                        <th>月付价格</th>
+                                        <th>年付价格</th>
+                                        <th>专属功能</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>基础版</strong></td>
+                                        <td>300</td>
+                                        <td>免费</td>
+                                        <td>免费</td>
+                                        <td style='text-align:left'>保存1天历史 / 存储20个模型 / 15次下载（V2.5）</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>尝鲜版</strong></td>
+                                        <td>750</td>
+                                        <td>&#165;40/月</td>
+                                        <td>&#165;430/年</td>
+                                        <td style='text-align:left'>保存3天历史 / 存储无限制 / 45次下载 / 导出带骨骼模型 / 购买额外积分 / 批量导出
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>专业版</strong></td>
+                                        <td>3000</td>
+                                        <td>&#165;150/月</td>
+                                        <td>&#165;1440/年</td>
+                                        <td style='text-align:left'>保存7天历史 / 无限制下载 / 导出带骨骼模型 / 购买额外积分 / 批量导出</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">为什么我的月度积分没有达到宣传的全部额度？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <ul>
+                                <li><strong>已消耗部分：</strong>请查看使用记录——您可能已在当前周期内使用了部分积分</li>
+                                <li><strong>系统延迟：</strong>订阅确认后积分可能需要 5-10 分钟才会显示</li>
+                            </ul>如要核实，请查看 &#9889; 积分 &#8594; 我的方案。
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">已经付款，但账户仍显示免费版？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <ul>
+                                <li>等待 5 分钟后刷新页面</li>
+                                <li>退出后重新登录</li>
+                                <li>检查邮箱中的支付收据</li>
+                                <li>如 10 分钟后仍未生效，请将支付收据截图和账号邮箱发送至 <a
+                                        href='mailto:support@tripo3d.com'>support@tripo3d.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-title">支付</div>
+                <div class="faq-item"><button class="faq-question">Tripo AI 支持哪些支付方式？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Tripo AI 接受支付宝支付，后续会拓展更多支付形式。</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">Tripo 如何确保支付信息的安全？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Tripo AI 通过受信任且符合 PCI 标准的支付提供商处理所有付款，绝不会在服务器上存储您的完整信用卡详细信息。</div>
+                    </div>
+                </div>
+                <div class="sub-title">发票</div>
+                <div class="faq-item"><button class="faq-question">如何下载发票？<span class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">进入 &#9889;积分 &#8594; 管理订阅 &#8594; 账单记录 &#8594; 下载 invoice，不支持 VAT
+                            或国内增值税发票。<br><br>您可以在支付宝账单详情页面自助开具下载发票，如下图所示：<br><img
+                                src="images/help/O4rtbSAWiocRk9xKntVcYbr7n6b.webp" alt="" loading="lazy"><img
+                                src="images/help/TF15bld4lobbXrxBhqgcwJpfnJf.webp" alt="" loading="lazy"></div>
+                    </div>
+                </div>
+                <div class="sub-title">退款</div>
+                <div class="faq-item"><button class="faq-question">在哪些情况下可以获得退款？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">满足以下<strong>全部条件</strong>可申请退款：<ul>
+                                <li>订单为误操作购买</li>
+                                <li>在购买后 <strong>24 小时内</strong>提出申请</li>
+                                <li>账户内<strong>未发生任何 credits 使用</strong></li>
+                            </ul><strong>退款申请方式：</strong>请发邮件至 <a
+                                href='mailto:support@tripo3d.com'>support@tripo3d.com</a>，提供账户邮箱、订单号、退款原因。<br><br><strong>重要说明：</strong>退款将依据法律法规及第三方支付平台规则审核，一旦完成将无法撤销。
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="category-section" id="credits">
+                <h2 class="category-title">积分规则</h2>
+                <div class="sub-title">使用规则</div>
+                <div class="faq-item"><button class="faq-question">积分是如何运作的？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">积分是 Tripo
+                            的内部货币。每次生成或编辑模型时，系统会根据模型复杂度和所选功能消耗相应积分。所有订阅方案均包含每月固定积分额度，如有额外需求可随时购买。</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">如何购买积分？<span class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <ul>
+                                <li>登录 <a href='https://studio.tripo3d.com/'
+                                        target='_blank'>studio.tripo3d.com</a>，点击顶部导航栏的 "积分"</li>
+                                <li>点击积分余额旁的 "购买" 按钮</li>
+                                <li>选择适合您的积分包或订阅套餐</li>
+                                <li>通过支付宝完成支付</li>
+                                <li>支付成功后，积分立即到账</li>
+                            </ul>企业批量采购请联系 <a href='mailto:business@vastai3d.com'>business@vastai3d.com</a>。
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">不同类型的积分是如何优先消耗的？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">优先消耗订阅积分，其次消耗购买的积分。系统会优先使用月底即将过期的月度订阅额度，再动用有效期更长的购买积分。</div>
+                    </div>
+                </div>
+                <div class="sub-title">积分重置</div>
+                <div class="faq-item"><button class="faq-question">我的积分什么时候会重置？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">月度订阅积分在每月的计费日重置。例如 3 月 15 日订阅，积分将在每月 15 日重置。上一周期未使用的月度积分不会结转。
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">我的积分会过期吗？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <table class='info-table'>
+                                <thead>
+                                    <tr>
+                                        <th>积分类型</th>
+                                        <th>是否过期</th>
+                                        <th>规则</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>月度订阅积分</td>
+                                        <td><strong>会</strong></td>
+                                        <td>每月计费日重置，未用完不结转</td>
+                                    </tr>
+                                    <tr>
+                                        <td>单独购买的额外积分</td>
+                                        <td><strong>不会</strong></td>
+                                        <td>永久有效，用完为止</td>
+                                    </tr>
+                                </tbody>
+                            </table>如果订阅过期或取消，所有未使用的月度订阅积分将被清零。但单独购买的额外积分永久保留。
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-title">异常与退款</div>
+                <div class="faq-item"><button class="faq-question">生成失败，积分还会被扣除吗？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">不会。仅在任务状态为"成功"时才扣除积分。如生成失败不消耗任何积分，可重新尝试。</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">积分丢失了 / 没有收到积分怎么办？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <ol>
+                                <li>检查是否为月度积分重置</li>
+                                <li>查看使用记录（&#9889; 图标）</li>
+                                <li>购买积分未到账——等待 5 分钟并刷新</li>
+                                <li>如仍有问题，请发邮件至 <a href='mailto:support@tripo3d.com'>support@tripo3d.com</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="category-section" id="features">
+                <h2 class="category-title">功能咨询</h2>
+                <div class="sub-title">模型生成</div>
+                <div class="faq-item"><button class="faq-question">如何使用文字生成模型功能？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <ul>
+                                <li>进入 Tripo Studio 的文字生成模型界面</li>
+                                <li>输入详细提示词描述您想要的 3D 模型</li>
+                                <li>点击 "生成模型" 按钮</li>
+                                <li>等待数秒至数分钟</li>
+                                <li>预览、编辑或导出生成的模型</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">如何使用图片生成模型功能？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <ul>
+                                <li>进入 Tripo Studio 的图片生成模型界面</li>
+                                <li>点击上传区域或拖拽文件上传图片</li>
+                                <li>点击 "生成模型" 按钮</li>
+                                <li>等待数秒至数分钟</li>
+                                <li>预览、编辑或导出生成的 3D 模型</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">为什么我的生成失败或卡住了？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">通常因提示词过于复杂或服务器暂时繁忙。<ol>
+                                <li>积分将在 1 小时内自动退还</li>
+                                <li>尝试简化描述或更换输入图片</li>
+                                <li>如 1 小时后积分仍未退还，请发邮件至 <a href='mailto:support@tripo3d.com'>support@tripo3d.com</a>
+                                    并附上模型链接</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">什么是智能网格？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">智能网格专为自动生成干净、优化的拓扑结构而设计：<ul>
+                                <li>面向实时引擎的清晰结构化拓扑</li>
+                                <li>秒级生成游戏级网格</li>
+                                <li>保证视觉质量的同时实现轻量化</li>
+                                <li>支持规模化资产生成</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-title">纹理生成</div>
+                <div class="faq-item"><button class="faq-question">Tripo 能为 3D 模型生成高质量贴图吗？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">是的。<ul>
+                                <li><strong>一键全局贴图：</strong>将空白模型转化为完全贴图的 3D 资产</li>
+                                <li><strong>AI 放大生成高清贴图：</strong>通过 AI 驱动的放大技术生成超高分辨率贴图</li>
+                                <li><strong>Magic Brush 局部修复：</strong>画笔涂抹修正缺陷、增强细节</li>
+                                <li><strong>PBR 材质：</strong>瞬间生成基于物理的贴图——基础颜色、法线、粗糙度等</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-title">动画</div>
+                <div class="faq-item"><button class="faq-question">是否可以上传已有的模型用于动画？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">可以。支持 GLB、OBJ、FBX、STL 格式。<ul>
+                                <li>进入 3D 工作台，点击上传 3D 模型</li>
+                                <li>选择模型文件（&#8804;100MB，面数&#8804;150万）</li>
+                                <li>上传后点击左侧菜单栏进入动画</li>
+                                <li>点击自动绑定生成骨骼</li>
+                                <li>下载带骨骼绑定的模型</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">Tripo 可以生成可用于动画的 3D 模型吗？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">是的。<ul>
+                                <li><strong>自动骨骼检测：</strong>为人类、动物和风格化角色找到正确的关节和骨骼</li>
+                                <li><strong>平滑蒙皮权重：</strong>AI 驱动的蒙皮确保自然运动</li>
+                                <li><strong>导出到任何工作流：</strong>FBX、GLB 或 OBJ，可用于 Blender、Maya、Unity、Unreal 或 Mixamo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-title">导入与导出</div>
+                <div class="faq-item"><button class="faq-question">为什么我无法下载我的模型？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner"><strong>基础版仅支持V2.5模型的导出</strong>，如果您无法下载模型，请尝试：<ul>
+                                <li>确认任务状态显示为 "成功"（绿色对勾），仅生成完成后才提供下载</li>
+                                <li>清除浏览器缓存，或使用无痕模式</li>
+                                <li>确认积分充足</li>
+                                <li>超大模型（>100MB）建议非高峰时段下载</li>
+                                <li>暂时禁用广告拦截器或 VPN 扩展</li>
+                            </ul>如问题持续，请联系 <a href='mailto:support@tripo3d.com'>support@tripo3d.com</a>。</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">如何将多个动画导出为一个文件（用于 Blender）？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <ul>
+                                <li>确保模型已应用自动绑定</li>
+                                <li>导出时选择 GLB（推荐）或 FBX</li>
+                                <li>确认 "包含动画" 开关已开启</li>
+                                <li>Blender 中：文件 &#8594; 导入 &#8594; GLTF 或 FBX，所有动画将作为独立 Actions 显示</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="category-section" id="privacy">
+                <h2 class="category-title">隐私与政策</h2>
+                <div class="sub-title">数据安全</div>
+                <div class="faq-item"><button class="faq-question">我的资产安全吗？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">会员模型默认是私密的，已删除的模型我们会根据监管要求及平台规则定期从服务器中移除，API 支持定时删除。</div>
+                    </div>
+                </div>
+                <div class="sub-title">版权</div>
+                <div class="faq-item"><button class="faq-question">生成的模型归谁所有？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <ul>
+                                <li><strong>付费用户：</strong>您对生成的所有 3D 模型拥有完整所有权和商用权。</li>
+                                <li><strong>免费用户：</strong>模型仅限个人非商业用途</li>
+                            </ul>取消订阅不影响所有权——您对付费期间生成的所有模型保留权利。
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">我可以将模型用于商业用途吗？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">只要用于模型生成的源材料（如上传的图片或基于文本生成的概念）是属于您的，通过 Tripo 生成的所有 3D
+                            模型均可在法律法规允许的范围内被授权用于商业用途。由此生成模型的版权（如有）完全归属于您本人，Tripo
+                            不对任何输出模型的版权状态承担责任。<br><br>以下为我们服务条款中关于内容使用的相关摘录：<br><em>您上传至本服务平台的内容以及您使用本服务生成的内容，权利归您或依法享有该知识产权的权利人所有，您使用本服务不会对前述内容及本服务生成的内容的权利归属产生影响。请您在使用前述内容时，注意遵守相关法律规定。</em>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-title">内容审核</div>
+                <div class="faq-item"><button class="faq-question">为什么提示词/关键词/图片被屏蔽了？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">请检查输入是否包含敏感信息。如有请调整后重试；如没有，请提供您的 Tripo 手机号以及尝试生成的内容，我们将后台核查。</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="category-section" id="api">
+                <h2 class="category-title">API 与插件</h2>
+                <div class="faq-item"><button class="faq-question">我该如何使用 Tripo API?<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Tripo API 将文本和图像输入转换为高保真 3D 模型，为集成生成式 3D 功能到您的应用提供灵活解决方案。<br>
+                            <ul>
+                                <li>快速开始：访问 <a href='https://platform.tripo3d.com/'
+                                        target='_blank'>platform.tripo3d.com</a> 查看设置指南和功能概述</li>
+                                <li>开始构建：通过编程方式发送请求，直接在工作流中生成 3D 模型</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">Tripo是否提供插件？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">是的，Tripo AI 为主流的 3D 工具和工作流提供插件与集成支持，您可以将 AI
+                            生成的资产直接导入到您的生产流程中。<br><br>目前支持以下平台（点击下方各插件查看详细教程）：<div class='plugin-links'><a
+                                    href="#plugin-blender" class="plugin-card"
+                                    onclick="event.preventDefault();var t=document.getElementById('plugin-blender');if(t){t.querySelector('.faq-question').click();t.scrollIntoView({behavior:'smooth',block:'start'})}"><svg
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                                        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                                        <line x1="12" y1="22.08" x2="12" y2="12" />
+                                    </svg>Blender</a><a href="#plugin-unity" class="plugin-card"
+                                    onclick="event.preventDefault();var t=document.getElementById('plugin-unity');if(t){t.querySelector('.faq-question').click();t.scrollIntoView({behavior:'smooth',block:'start'})}"><svg
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                                        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                                        <line x1="12" y1="22.08" x2="12" y2="12" />
+                                    </svg>Unity</a><a href="#plugin-unreal-engine" class="plugin-card"
+                                    onclick="event.preventDefault();var t=document.getElementById('plugin-unreal-engine');if(t){t.querySelector('.faq-question').click();t.scrollIntoView({behavior:'smooth',block:'start'})}"><svg
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                                        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                                        <line x1="12" y1="22.08" x2="12" y2="12" />
+                                    </svg>Unreal Engine</a><a href="#plugin-3ds-max" class="plugin-card"
+                                    onclick="event.preventDefault();var t=document.getElementById('plugin-3ds-max');if(t){t.querySelector('.faq-question').click();t.scrollIntoView({behavior:'smooth',block:'start'})}"><svg
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                                        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                                        <line x1="12" y1="22.08" x2="12" y2="12" />
+                                    </svg>3ds Max</a><a href="#plugin-godot" class="plugin-card"
+                                    onclick="event.preventDefault();var t=document.getElementById('plugin-godot');if(t){t.querySelector('.faq-question').click();t.scrollIntoView({behavior:'smooth',block:'start'})}"><svg
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                                        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                                        <line x1="12" y1="22.08" x2="12" y2="12" />
+                                    </svg>Godot</a><a href="#plugin-cocos" class="plugin-card"
+                                    onclick="event.preventDefault();var t=document.getElementById('plugin-cocos');if(t){t.querySelector('.faq-question').click();t.scrollIntoView({behavior:'smooth',block:'start'})}"><svg
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                                        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                                        <line x1="12" y1="22.08" x2="12" y2="12" />
+                                    </svg>Cocos</a><a href="#plugin-maya" class="plugin-card"
+                                    onclick="event.preventDefault();var t=document.getElementById('plugin-maya');if(t){t.querySelector('.faq-question').click();t.scrollIntoView({behavior:'smooth',block:'start'})}"><svg
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                                        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                                        <line x1="12" y1="22.08" x2="12" y2="12" />
+                                    </svg>Maya</a><a href="#plugin-bambu-studio" class="plugin-card"
+                                    onclick="event.preventDefault();var t=document.getElementById('plugin-bambu-studio');if(t){t.querySelector('.faq-question').click();t.scrollIntoView({behavior:'smooth',block:'start'})}"><svg
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                                        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                                        <line x1="12" y1="22.08" x2="12" y2="12" />
+                                    </svg>Bambu Studio</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-title">插件教程</div>
+                <div class="faq-item" id="plugin-blender"><button class="faq-question">Blender 插件教程<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner plugin-tutorial"><img
+                                src="images/help/Ru7ubqB68oT55BxXRPkcrHgEnnf.webp" alt="" loading="lazy"><br>
+                            <img src="images/help/HPMMbcuOdowyqVxpgsAcAzM8nPh.webp" alt="" loading="lazy"><br>
+                            <h3>Bridge 简介</h3>
+                            <p><strong>Tripo3D Blender Bridge</strong> 是一个轻量级的附加组件，可将 Blender 直接连接到 Tripo studio 首页。通过此
+                                Bridge，您可以<strong>将浏览器中生成的模型实时直接发送到
+                                    Blender</strong>，无需手动下载、导入或额外的步骤。它旨在简化艺术家和设计师的工作流程，让您专注于创作而非文件处理。</p>
+                            <h3>系统要求</h3>
+                            <li><strong>操作系统：</strong> Windows, Mac</li>
+                            <li><strong>Blender：</strong> 4.1.0 或更高版本</li>
+                            <li><strong>浏览器：</strong></li>
+                            <li>支持 Google Chrome 116+、Edge 116+、Opera 102+</li>
+                            <li>其他浏览器<strong>不支持</strong></li>
+                            <li><strong>默认导出设置：</strong></li>
+                            <li>打包UV: 否</li>
+                            <li>导出顶点色: 否</li>
+                            <li>底部中心轴点: 是</li>
+                            <li>纹理贴图：当前最大值</li>
+                            <h3>分步安装</h3>
+                            <p><strong>步骤 1：</strong> 访问 <a href="https%3A%2F%2Fstudio.tripo3d.com%2F"
+                                    target="_blank"><text underline="true">Tripo Studio</text></a> 并下载<strong>Tripo3D
+                                    Blender Bridge</strong> ZIP 文件。</p>
+                            <img src="images/help/UW2xbhFB2oN8rVxCmrOcHjGan5e.webp" alt="" loading="lazy"><br>
+                            <p><strong>步骤 2：</strong> 在 Blender 中，点击<strong>Edit → Preferences → Add-ons</strong>。</p>
+                            <img src="images/help/MnYObzmgXoxldvx0UYIcl8QEn9b.webp" alt="" loading="lazy"><br>
+                            <p><strong>步骤 3：</strong></p>
+                            <li>点击 <strong>Install from Disk</strong>，找到下载的<strong>ZIP 文件</strong>（不要解压），然后启用该插件。</li>
+                            <img src="images/help/LYxmb7bjto22jUxdBMYc8kQMnfd.webp" alt="" loading="lazy"><br>
+                            <li>然后按 <strong>N</strong> 键检查 Tripo bridge 面板。</li>
+                            <img src="images/help/RRbXblgBMoIeTjxOzpXcPtsHnpe.webp" alt="" loading="lazy"><br>
+                            <p><strong>步骤 4：</strong></p>
+                            <li>打开 <strong>Tripo Studio</strong> 网站，点击<strong>发送至3D软件（DCC Bridge）</strong> 按钮，并激活
+                                Blender 插件。</li>
+                            <li>确认网页和插件连接成功。</li>
+                            <img src="images/help/UnWHbtnlaorm5FxCProc21zjnra.webp" alt="" loading="lazy"><br>
+                            <li>在小窗口中点击 <strong>导出</strong> 按钮。</li>
+                            <img src="images/help/T0iubZcyQotyeNxOuf6cwGUNnTe.webp" alt="" loading="lazy"><br>
+                            <li>如果您想导出动画，在<strong>导出面板</strong>中选择您要导出的动画，然后点击<strong>发送至</strong> 发送到指定的软件。</li>
+                            <img src="images/help/FY6mbYsaAom3ePxWE7xcdUKdn8e.webp" alt="" loading="lazy"><br>
+                            <p><strong>步骤 5：</strong> 现在可以在 Blender 中看到从网站发送过来的模型了。</p>
+                            <img src="images/help/QvkkbnaCpocjAaxjPymcFmI5nxb.webp" alt="" loading="lazy"><br>
+                            <h3>常见问题</h3>
+                            <p>问：我能否同时向多个 Blender 传输数据？</p>
+                            <p><strong>答：</strong> 不能。连接只识别第一个启动的 Blender 实例。打开多个实例将导致端口被占用的错误。</p>
+                            <p>问：我更新了插件，但新的 Tripo Bridge 显示“All connections closed”并且无法连接。我该怎么办？</p>
+                            <p><strong>答：</strong> 重启 Blender 并在 Add-ons 首选项中重新激活插件。确保 Tripo Bridge Log 显示“Server
+                                running on port [XXXX]”以确认连接成功。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item" id="plugin-unity"><button class="faq-question">Unity 插件教程<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner plugin-tutorial"><img
+                                src="images/help/MloabIA1moulSUx1SAdcDudBnjg.webp" alt="" loading="lazy"><br>
+                            <p><strong>Tripo3D Unity Bridge</strong> 是一款轻量级插件，可将 Unity 直接连接到 Tripo Studio 首页。通过此
+                                Bridge，您可以将生成的模型从浏览器直接发送到 Unity 编辑器中，无需手动下载、导入或额外的步骤。</p>
+                            <p>它旨在简化艺术家、技术美术师和游戏开发者的工作流程，让您能够专注于场景搭建和游戏玩法集成，而不是文件管理。</p>
+                            <h3>要求</h3>
+                            <li><strong>操作系统：</strong> Windows、Mac</li>
+                            <li><strong>Unity：</strong> 2021.3 LTS 或更高版本（推荐 2022.3 LTS+ 或 Unity6 LTS+）</li>
+                            <li><strong>浏览器：</strong></li>
+                            <li>支持 Google Chrome 116+、Edge 116+、Opera 102+</li>
+                            <li>不支持其他浏览器</li>
+                            <li><strong>默认导入设置：</strong></li>
+                            <li>生成碰撞体 (Generate Colliders)：`false`</li>
+                            <li>导入材质 (Import Materials)：`true`</li>
+                            <li>导入纹理 (Import Textures)：`true`</li>
+                            <li>枢轴点 (Pivot)：底部中心 (Center Bottom)</li>
+                            <li>纹理分辨率 (Texture Resolution)：当前最大值 (Current Maximum)</li>
+                            <h3>分步安装</h3>
+                            <p><strong>第 1 步：</strong> 访问 <a href="https%3A%2F%2Fstudio.tripo3d.ai%2F"
+                                    target="_blank"><text underline="true">Tripo Studio</text></a> 并下载<strong>Tripo3D
+                                    Unity Bridge</strong> ZIP 文件。</p>
+                            <img src="images/help/IFwObplxdohGhWxMV8hclN2ln4e.webp" alt="" loading="lazy"><br>
+                            <p><strong>第 2 步</strong>：</p>
+                            <li>将包导入 Unity。打开您的 Unity 项目并导航至：<strong>Window → Package Manager</strong>（窗口 → 包管理器）</li>
+                            <img src="images/help/F8jqbhPftoEUBax88b0cBONynIZ.webp" alt="" loading="lazy"><br>
+                            <li>在包管理器窗口中，点击左上角的 <strong>“+”</strong> 按钮。选择<strong>Add package from
+                                    disk…</strong>（从磁盘添加包…）</li>
+                            <img src="images/help/SWaZbv8LnokpInxMNRmcSaVYnYf.webp" alt="" loading="lazy"><br>
+                            <li>浏览到解压后的插件文件夹。选择 `package.json` 文件。</li>
+                            <img src="images/help/RJDGbk2gQoBDmvxaEuQcZbnCnIf.webp" alt="" loading="lazy"><br>
+                            <li>安装完成后，插件将出现在您的包管理器列表中，表示将在项目中可用。</li>
+                            <img src="images/help/SBGmbWqRsofhpvxuAW1cXa0Wnfg.webp" alt="" loading="lazy"><br>
+                            <p><strong>第 3 步：</strong></p>
+                            <li>安装后：导航至：<strong>Tools → Tripo Bridge</strong>（工具 → Tripo Bridge）</li>
+                            <img src="images/help/UpWYbMnHWotdWLxLVLGc6uHEndh.webp" alt="" loading="lazy"><br>
+                            <li>面板打开后，Bridge 服务会自动启动。</li>
+                            <li>Bridge 服务在连接到网页浏览器时必须保持运行。</li>
+                            <li>在模型传输过程中，请勿关闭 Unity 或 Bridge 面板。</li>
+                            <li>在 Tripo Bridge 面板内，渲染管线会根据当前的 Unity 项目自动检测。支持的管线包括：</li>
+                            <li>Standard（内置渲染管线）</li>
+                            <li>URP</li>
+                            <li>HDRP</li>
+                            <p>您还可以查看连接状态和详细的日志输出。</p>
+                            <img src="images/help/D1dsbPFcnoZmivxvAD4cAGz5n7c.webp" alt="" loading="lazy"><br>
+                            <p>附注：如果您需要手动停止服务，请点击面板中的 <strong>Stop Server</strong>（停止服务器）。但是，要从 Tripo Studio
+                                发送或接收模型，服务必须正在运行。如果服务已停止，请在尝试传输之前点击<strong>Start Server</strong>（启动服务器）。</p>
+                            <img src="images/help/HouBbhW82olF0uxWTZ4cBjXsnv7.webp" alt="" loading="lazy"><br>
+                            <p><strong>第 4 步：</strong></p>
+                            <li>打开 <strong>Tripo Studio</strong> 网站，点击<strong>发送至3D软件（DCC Bridge）</strong> 按钮，并激活 Unity
+                                插件。</li>
+                            <li>确认网页和插件连接成功。</li>
+                            <img src="images/help/L5vSbdXtcoVKrJxAEPccMyOBnSb.webp" alt="" loading="lazy"><br>
+                            <li>选择一个模型。点击小窗口中的 <strong>Export</strong>（导出）按钮。</li>
+                            <li>点击 <strong>Send to Unity</strong>（发送到 Unity）。</li>
+                            <img src="images/help/M8IybtHCPorLBDxohKWcrgcJnxb.webp" alt="" loading="lazy"><br>
+                            <p><text bgcolor="light-yellow">传输后，请确保 Unity 窗口处于聚焦状态，以便 Unity UI 能够及时刷新并正确显示传入的模型。</text>
+                            </p>
+                            <li>如果您想导出带动画的模型，请先在 Tripo Studio 中生成动画，然后在导出面板中选择所需的动画并将其直接发送到 Unity。</li>
+                            <img src="images/help/K70Abx9XyoW20nxNWQgcHo1GnXg.webp" alt="" loading="lazy"><br>
+                            <p><strong>第 5 步：</strong> 您现在可以在 Unity 中看到从网站发送的模型。</p>
+                            <img src="images/help/Dbw1bUaBYo8z04xOFzHcZwrbnTd.webp" alt="" loading="lazy"><br>
+                            <h3>常见问题</h3>
+                            <p>问：导入的模型在 Unity 中显示为紫色。</p>
+                            <p><strong>答：</strong> Unity 中出现的紫色（品红色）材质通常表示着色器或渲染管线不匹配。</p>
+                            <p><strong>如果您的项目使用 URP 或 HDRP：</strong></p>
+                            <li>打开 Tripo Bridge 面板。</li>
+                            <li>确保选择了正确的渲染管线（URP / HDRP），然后再次从 Tripo Studio 发送模型。</li>
+                            <li>另外，您可以手动修复材质：选择受影响的材质，将其着色器更改为 Universal Render Pipeline/Lit（适用于 URP）或 HDRP/Lit（适用于
+                                HDRP），替换相应的纹理；如果问题仍然存在，请确保在 Project Settings → Graphics（项目设置 → 图形）中分配了有效的渲染管线资源 (Render
+                                Pipeline Asset)。</li>
+                            <p>问：我可以同时将数据传输到多个 Unity 吗？</p>
+                            <p><strong>答：</strong> 不可以。连接只识别第一个启动的 Unity 实例。</p>
+                            <p>问：我可以在 Unity 的Play模式下发送模型吗？</p>
+                            <p><strong>答：</strong> 目前，模型传输仅在 Unity 编辑器模式下受支持，若希望实时发送请使用 Tripo API 插件。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item" id="plugin-unreal-engine"><button class="faq-question">Unreal Engine 插件教程<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner plugin-tutorial"><img
+                                src="images/help/AMALbZoZSoTqDfx9T7PcQ11Mngh.webp" alt="" loading="lazy"><br>
+                            <p><strong>Tripo3D Unreal Engine Bridge</strong> 是一款轻量级插件，可将 Unreal Engine 直接连接到 Tripo
+                                Studio 首页。</p>
+                            <p>通过此 Bridge，您可以将生成的模型实时从浏览器直接发送到您的 Unreal
+                                项目中——无需手动下载或导入。它简化了艺术家和游戏开发者的工作流程，让您能够专注于场景构建和游戏玩法，而不是文件处理。</p>
+                            <h3>要求</h3>
+                            <li><strong>操作系统：</strong> Windows</li>
+                            <li><strong>Unreal Engine：</strong> 5.4 或更高版本，建议使用 UE 5.7+。</li>
+                            <li><strong>浏览器：</strong></li>
+                            <li>支持 Google Chrome 116+、Edge 116+、Opera 102+</li>
+                            <li>不支持其他浏览器</li>
+                            <li><strong>默认导入设置：</strong></li>
+                            <li>轴心：底部中心 (Pivot: Center Bottom)</li>
+                            <li>纹理分辨率：当前最大值 (Texture Resolution: Current Maximum)</li>
+                            <li>自动材质创建：已启用 (Auto Material Creation: Enabled)</li>
+                            <li>自动资产放置：已启用 (Auto Asset Placement: Enabled)</li>
+                            <h3>分步安装</h3>
+                            <p><strong>步骤 1：</strong></p>
+                            <li>前往 <a href="https%3A%2F%2Fstudio.tripo3d.com%2F" target="_blank"><text
+                                        underline="true">Tripo Studio</text></a> 并下载 <strong>Tripo3D Unreal Engine
+                                    Bridge</strong> 包。</li>
+                            <img src="images/help/Fr4kbaUZwofl4mx99Goc7ZomnOD.webp" alt="" loading="lazy"><br>
+                            <p><strong>步骤 2：</strong></p>
+                            <li>解压 ZIP 文件。</li>
+                            <li>选择与您的 Unreal Engine 版本匹配的插件版本。</li>
+                            <img src="images/help/Dq8GbYuLzoZnbjxOaXtcdoEknAg.webp" alt="" loading="lazy"><br>
+                            <li>将插件文件夹复制到您的 Unreal 项目的 `Plugins` 目录中。</li>
+                            <li>如果 `Plugins` 文件夹不存在，请在项目根目录中创建一个。</li>
+                            <img src="images/help/Pp0XbNO3Po5jGNxLZ9ecRbdMnw3.webp" alt="" loading="lazy"><br>
+                            <p><strong>步骤 3：</strong></p>
+                            <li>在 Unreal Engine 中，通过 窗口 (Window) → Tripo Bridge 打开 Tripo Bridge 面板。</li>
+                            <img src="images/help/FwqCblCm6oGxzmxiShQcFR2nnwd.webp" alt="" loading="lazy"><br>
+                            <li>打开 Bridge 面板。</li>
+                            <li>当面板打开时，<strong>Bridge 服务会自动启动</strong>。</li>
+                            <li>连接到网页浏览器时，Bridge 服务必须保持运行状态。</li>
+                            <li>在模型传输过程中，请勿关闭 UE 或 Bridge 面板。</li>
+                            <img src="images/help/ZiSybKaGiogbzdx5EclcbKpenbb.webp" alt="" loading="lazy"><br>
+                            <p>PS: 如果您需要手动停止服务，请在面板中点击 <strong>停止服务器 (Stop Server)</strong>。但是，要从 Tripo Studio
+                                发送或接收模型，服务必须处于运行状态。如果服务已停止，请在尝试传输之前点击<strong>启动服务器 (Start Server)</strong>。</p>
+                            <img src="images/help/RTd3bxMzjol2EKxPdaMcQt8znjb.webp" alt="" loading="lazy"><br>
+                            <p><strong>步骤 4：</strong></p>
+                            <li>打开 <strong>Tripo Studio</strong> 网站，点击<strong>发送至3D软件（DCC Bridge）</strong>按钮，并激活 UE 插件。
+                            </li>
+                            <li>确认网页和插件连接成功。</li>
+                            <img src="images/help/RLFcbob8hoXwIJxIl0dcShsSn3f.webp" alt="" loading="lazy"><br>
+                            <li>选择一个模型。在迷你窗口中按下 <strong>导出 (Export)</strong> 按钮。</li>
+                            <li>点击 <strong>发送到 Unreal (Send to Unreal)</strong></li>
+                            <img src="images/help/Okk8bBdXdoC46bxD9ukclrrSnhe.webp" alt="" loading="lazy"><br>
+                            <p><text bgcolor="light-yellow">如果 Unreal Engine 仍在传输中，请等待传输完成再启动另一次传输。</text></p>
+                            <li>如果您想导出带有动画的模型，请先在 Tripo Studio 中生成动画，然后在导出面板中选择所需的动画并将其直接发送到 UE。</li>
+                            <img src="images/help/GIbnbslAAo8pdTxpUFVcZZKjnCc.webp" alt="" loading="lazy"><br>
+                            <p><strong>步骤 5：</strong> 您现在可以在 UE 中看到传输过来的模型。</p>
+                            <img src="images/help/KX9jbLYByoIPIJxcQkTcf8bCnch.webp" alt="" loading="lazy"><br>
+                            <h3>常见问题</h3>
+                            <p>问：如果插件编译失败，我该怎么办？</p>
+                            <p>答：此问题可能是由于使用了不匹配的引擎版本造成的——例如，在 UE5.7 中打开 UE5.6 项目。在这种情况下，您可以尝试删除 Tripo
+                                插件并重新安装与您当前引擎匹配的版本。或者，您可以使用提供的源代码自行编译插件以解决兼容性问题。</p>
+                            <p>问：我可以同时向多个 UE 实例传输数据吗？</p>
+                            <p>答：不能。连接仅识别第一个启动的 UE 实例。</p>
+                            <p>问：当 UE 处于Play模式时，我可以发送模型吗？</p>
+                            <p>答：目前，模型传输仅支持 UE 编辑器模式，若希望实时发送请使用 Tripo API 插件。</p>
+                            <p>问：Tripo 桥接工具显示“已收到文件”，但导入失败，该怎么办？</p>
+                            <p>答：首先，检查UE编辑器的输出日志，查看更详细的错误信息。确保你的项目路径和文件名只包含英文字符（<text
+                                    color="red">不要使用中文、日文、特殊符号或空格</text>）。同时，确认你的系统满足该资源大小所需的内存和磁盘空间要求。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item" id="plugin-3ds-max"><button class="faq-question">3ds Max 插件教程<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner plugin-tutorial"><img
+                                src="images/help/ESmrbuuPzoBe2ixB3SncEKHtnzb.webp" alt="" loading="lazy"><br>
+                            <p><strong>Tripo3D 3ds Max Bridge</strong> 是一个轻量级插件，可将<strong>3ds Max</strong> 直接连接到 Tripo
+                                Studio 首页。</p>
+                            <p>通过此桥接，您可以将从浏览器生成的模型实时发送到 3ds Max，无需手动下载或导入。它旨在简化艺术家和设计师的工作流程，让您专注于建模和场景组装，而不是文件管理。</p>
+                            <h3>系统要求</h3>
+                            <li><strong>操作系统：</strong> Windows</li>
+                            <li><strong>3ds Max：</strong> 2024 或更高版本</li>
+                            <li><strong>浏览器：</strong></li>
+                            <li>支持 Google Chrome 116+、Edge 116+、Opera 102+</li>
+                            <li>其他浏览器不受支持</li>
+                            <li><strong>默认导入设置：</strong></li>
+                            <li>轴心：底部中心</li>
+                            <li>纹理分辨率：当前最大值</li>
+                            <li>自动材质分配：启用</li>
+                            <li>自动场景放置：启用</li>
+                            <h3>分步安装</h3>
+                            <p><strong>步骤 1：</strong></p>
+                            <li>访问 <a href="https%3A%2F%2Fstudio.tripo3d.com%2F" target="_blank"><text
+                                        underline="true">Tripo Studio</text></a> 并下载 <strong>Tripo3D 3ds Max
+                                    Bridge</strong> 安装包。</li>
+                            <li>解压 ZIP 文件。</li>
+                            <img src="images/help/G85ZbmpTtoSnAjxK9gcc94CpnAc.webp" alt="" loading="lazy"><br>
+                            <p><strong>步骤 2：</strong></p>
+                            <li>将 `install.ms` 文件直接拖入 3ds Max 视口。插件将自动安装。</li>
+                            <img src="images/help/BtlqbwrnfoTrn8xwacIcdcFOnvg.webp" alt="" loading="lazy"><br>
+                            <li>您可以右键菜单打开或关闭插件面板。</li>
+                            <img src="images/help/QZlpbfqiuoIWBCxNULAc4DAnnAf.webp" alt="" loading="lazy"><br>
+                            <p><strong>步骤 3：</strong></p>
+                            <li>打开 <strong>Tripo Studio</strong> 网站，点击<strong>DCC Bridge</strong> 按钮，并激活 Blender 插件。
+                            </li>
+                            <li>确认连接已正确设置。</li>
+                            <img src="images/help/T9KNbpJYNo8w8NxFPa9cKHySn4D.webp" alt="" loading="lazy"><br>
+                            <li>点击迷你窗口中的 <strong>导出</strong> 按钮。</li>
+                            <img src="images/help/Hg4ibkPfiogc62xXUsScOvq0nAe.webp" alt="" loading="lazy"><br>
+                            <li>如果您想导出动画，在<strong>导出面板</strong>中选择您要导出的动画，然后点击<strong>发送至</strong> 发送到指定的软件。</li>
+                            <li>由于 Autodesk 3ds Max 处理动画的方式，建议每个模型只导出一个动画。</li>
+                            <img src="images/help/VGqlbK2WEob79exUmPccNZWXnOb.webp" alt="" loading="lazy"><br>
+                            <p><strong>步骤 4：</strong></p>
+                            <p>您现在可以在 Autodesk 3ds Max 中查看从网站发送过来的模型。</p>
+                            <img src="images/help/EOaGb4KSXoh8dBxp4lLcLOH4ntb.webp" alt="" loading="lazy"><br>
+                            <h3>常见问题</h3>
+                            <p>问：我可以同时向多个 3ds Max 传输数据吗？</p>
+                            <p><strong>答：</strong> 不可以。连接只识别第一个启动的 3ds Max 实例。</p>
+                            <p>问：如何卸载 tripo bridge 插件？</p>
+                            <p><strong>答：</strong> 要卸载 Tripo3D 3ds Max Bridge，只需将 `uninstall.ms` 文件拖入 3ds Max
+                                视口，插件将自动移除。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item" id="plugin-godot"><button class="faq-question">Godot 插件教程<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner plugin-tutorial"><img
+                                src="images/help/FADibZgv7oZ4YSxAzf3c7PVjnNh.webp" alt="" loading="lazy"><br>
+                            <p><strong>Tripo3D Godot Bridge</strong> 是一个轻量级插件，可将 Godot 直接连接到 Tripo Studio 首页。</p>
+                            <p>借助此桥接器，您可以将浏览器中生成的模型实时直接发送到 Godot
+                                项目中——无需手动下载或导入。它简化了艺术家和游戏开发人员的工作流程，让您可以专注于场景构建和游戏玩法，而不是文件处理。</p>
+                            <h3>要求</h3>
+                            <li><strong>操作系统：</strong> Windows, Mac</li>
+                            <li><strong>Godot: 4.6+</strong></li>
+                            <li><strong>浏览器：</strong></li>
+                            <li>支持 Google Chrome 116+、Edge 116+、Opera 102+</li>
+                            <li>不支持其他浏览器</li>
+                            <li><strong>默认导入设置：</strong></li>
+                            <li>轴心：底部居中</li>
+                            <li>纹理分辨率：当前最大值</li>
+                            <li>自动材质创建：已启用</li>
+                            <li>自动资产放置：已启用</li>
+                            <h3>分步安装</h3>
+                            <p><strong>步骤 1：</strong></p>
+                            <li>前往 <a href="https%3A%2F%2Fstudio.tripo3d.com%2F" target="_blank"><strong>Tripo
+                                        Studio</strong></a> 并下载<strong>Tripo3D Godot Engine Bridge</strong> 包。</li>
+                            <img src="images/help/E0bkbDo4foqav9x4fUpcIXrHnAd.webp" alt="" loading="lazy"><br>
+                            <p><strong>步骤 2：</strong></p>
+                            <li>解压 ZIP 文件。</li>
+                            <li>将插件文件夹复制到 Godot 项目的 `Addons` 目录中。</li>
+                            <li>如果 `Addons` 文件夹不存在，请在项目根目录创建它。</li>
+                            <img src="images/help/NypxbcA5loOB5HxQYXDcjbQ8nDh.webp" alt="" loading="lazy"><br>
+                            <p><strong>步骤 3：</strong></p>
+                            <li>将包导入 Godot，打开您的项目并导航到：<strong>项目 → 项目设置 → 插件</strong>。确保 Tripo Bridge 插件已启用。</li>
+                            <img src="images/help/NbGEb7NxWoknySxsKiLcxMPZnQg.webp" alt="" loading="lazy"><br>
+                            <li>面板打开后，<strong>桥接服务会自动启动</strong>。</li>
+                            <li>在连接到网络浏览器时，桥接服务必须保持运行。在模型传输过程中，请勿关闭 Godot 或 Bridge面板。</li>
+                            <p>PS：如果需要手动停止服务，请在面板中点击“<strong>停止服务器</strong>”。但是要从 Tripo Studio
+                                发送或接收模型，服务必须正在运行。如果已停止，请在尝试传输之前点击“<strong>启动服务器</strong>”。</p>
+                            <img src="images/help/WGHmb1AP3oxURlxucZCcls3Mnue.webp" alt="" loading="lazy"><br>
+                            <p><strong>步骤 4：</strong></p>
+                            <li>打开 <strong>Tripo Studio</strong> 网站，点击<strong>发送至3D软件（DCC Bridge）</strong>按钮，并激活 Godot
+                                插件。</li>
+                            <li>确认连接设置正确。</li>
+                            <img src="images/help/Il4KbTFg6oJjQnxezzNcXBOxnnc.webp" alt="" loading="lazy"><br>
+                            <li>选择一个模型。在小窗口中按下“<strong>导出</strong>”按钮。</li>
+                            <img src="images/help/ImICbvpqnoFB9Px3f3Rc4Nsansf.webp" alt="" loading="lazy"><br>
+                            <li><strong>如果 Godot 仍在传输中，请等待传输完成后再启动下一次传输。</strong></li>
+                            <li>如果您想导出带有动画的模型，请首先在 Tripo Studio 中生成动画，然后从导出面板中选择所需的动画并直接发送到 Godot。</li>
+                            <img src="images/help/RAB2brNg7os12Vx1rQFc5OHsn1b.webp" alt="" loading="lazy"><br>
+                            <p><strong>步骤 5：</strong> 您现在可以在 Godot 中看到从网站发送的模型。</p>
+                            <img src="images/help/R7cAb2OjTof5coxV5XucdIjYnfl.webp" alt="" loading="lazy"><br>
+                            <h3>常见问题</h3>
+                            <p>问：我可以同时向多个 Godot 传输数据吗？</p>
+                            <p>答：不能。连接只识别第一个启动的 Godot 实例。</p>
+                            <p>问：我可以在 Godot 处于Play模式时发送模型吗？</p>
+                            <p>答：目前，模型传输仅在 Godot 编辑器模式下受支持，若希望实时发送请使用 Tripo API 插件。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item" id="plugin-cocos"><button class="faq-question">Cocos 插件教程<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner plugin-tutorial"><img
+                                src="images/help/H9HNb1h5MoY10Cx54BOcDZgVnmf.webp" alt="" loading="lazy"><br>
+                            <p><strong>Tripo3D</strong><strong>Cocos</strong><strong> Bridge</strong> 是一个轻量级插件，可将 Cocos
+                                直接连接到 Tripo Studio 首页。</p>
+                            <p>通过此桥接器，您可以将浏览器中生成的模型实时直接发送到您的 Cocos
+                                项目中——无需手动下载或导入。它简化了艺术家和游戏开发者的工作流程，让您能够专注于场景构建和游戏玩法，而不是文件处理。</p>
+                            <h3>要求</h3>
+                            <li><strong>操作系统：</strong> Windows, Mac</li>
+                            <li><strong>Cocos：3.8.5+</strong></li>
+                            <li><strong>浏览器：</strong></li>
+                            <li>支持 Google Chrome 116+、Edge 116+、Opera 102+</li>
+                            <li>其他浏览器不支持</li>
+                            <li><strong>默认导入设置：</strong></li>
+                            <li>轴心：底部居中</li>
+                            <li>纹理分辨率：当前最大值</li>
+                            <li>自动材质创建：已启用</li>
+                            <li>自动资产放置：已启用</li>
+                            <h3>分步安装</h3>
+                            <p><strong>步骤 1：</strong></p>
+                            <li>前往 <a href="https%3A%2F%2Fstudio.tripo3d.com%2F" target="_blank"><strong>Tripo
+                                        Studio</strong></a> 并下载<strong>Tripo3D Cocos Engine Bridge</strong> 包。</li>
+                            <img src="images/help/VLEabrFGioQ7efxjnYMc8GE2nqe.webp" alt="" loading="lazy"><br>
+                            <p><strong>步骤 2：</strong></p>
+                            <li>打开您的 Cocos 项目并导航至：<strong>窗口 → 扩展管理器</strong></li>
+                            <img src="images/help/T0lxbMlbTotDG5xlYzBcGQwVnGg.webp" alt="" loading="lazy"><br>
+                            <li>点击“导入扩展文件(.zip)”并选择插件 zip 文件。请勿解压。</li>
+                            <img src="images/help/VCjPbMUL4oKZalxTPWEcXzfEnKh.webp" alt="" loading="lazy"><br>
+                            <p><strong>步骤 3：</strong></p>
+                            <li>在 Cocos Engine 中，通过 <strong>面板 → Tripo Bridge</strong> 打开插件面板。</li>
+                            <img src="images/help/Ty38bjc9qoTyD5xAeQ5c3KN7nKf.webp" alt="" loading="lazy"><br>
+                            <li>面板打开后，<strong>桥接服务会自动启动</strong>。</li>
+                            <li>桥接服务在连接到网页浏览器时必须保持运行。在模型传输期间，请勿关闭 Cocos 或桥接面板。</li>
+                            <p>PS：如果需要手动停止服务，请点击面板中的“停止服务器”。但是要从 Tripo Studio
+                                发送或接收模型，服务必须处于运行状态。如果服务已停止，请在尝试传输之前点击“启动服务器”。</p>
+                            <img src="images/help/DoO9b15pLolfEJxmLQecM7Ednif.webp" alt="" loading="lazy"><br>
+                            <p><strong>步骤 4：</strong></p>
+                            <li>打开 <strong>Tripo Studio</strong> 网站，点击<strong>发送至3D软件（DCC Bridge）</strong> 按钮，并激活 Cocos
+                                插件。</li>
+                            <li>确认连接已正确设置。</li>
+                            <img src="images/help/VTIdbY88boGqlsxKdKQcWBO9nEc.webp" alt="" loading="lazy"><br>
+                            <li>选择一个模型。点击小窗口中的“导出”按钮。</li>
+                            <img src="images/help/XXnHbZGpFoQcw1xVnGPcilDlnFb.webp" alt="" loading="lazy"><br>
+                            <li><strong>如果 Cocos 仍在传输中，请等待传输完成后再启动下一次传输。</strong></li>
+                            <li>如果您想导出带动画的模型，请先在 Tripo Studio 中生成动画，然后在“导出”面板中选择所需的动画并直接发送到 Cocos。</li>
+                            <img src="images/help/IzDTbnhPqoxEovx55oDczqAnnXd.webp" alt="" loading="lazy"><br>
+                            <p><strong>步骤 5：</strong> 现在您可以在 Cocos 中看到来自网站的模型了。</p>
+                            <img src="images/help/XurqbR7U8oXdBIxOVPXcPmAanHb.webp" alt="" loading="lazy"><br>
+                            <h3>常见问题</h3>
+                            <p>问：我可以同时向多个 Cocos 传输数据吗？</p>
+                            <p><strong>答：</strong> 不能。连接只识别第一个启动的 Cocos 实例。</p>
+                            <p>问：在 Cocos 处于播放模式时可以发送模型吗？</p>
+                            <p><strong>答：</strong> 目前，模型传输仅在 Cocos 编辑器模式下支持，若希望实时发送请使用 Tripo API 插件。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item" id="plugin-maya"><button class="faq-question">Maya 插件教程<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner plugin-tutorial"><img
+                                src="images/help/RWT6bCHAqoobckxeTExcuRq9ngf.webp" alt="" loading="lazy"><br>
+                            <p><strong>Tripo3D Maya Bridge</strong> 是一个轻量级插件，可将<strong>Maya</strong> 直接连接到 Tripo Studio
+                                首页。</p>
+                            <p>通过此桥接器，您可以将浏览器中生成的模型实时发送到 Maya 中，无需手动下载或导入。它旨在简化艺术家和设计师的工作流程，让您专注于建模和场景组装，而不是文件管理。</p>
+                            <h3>要求</h3>
+                            <li><strong>操作系统：</strong> Windows</li>
+                            <li><strong>Maya：</strong></li>
+                            <li>2022 或更高版本（需要适用于 Python 3 的 PyMEL）</li>
+                            <li>推荐使用 Maya 2023+</li>
+                            <li><strong>浏览器：</strong></li>
+                            <li>支持 Google Chrome 116+、Edge 116+、Opera 102+</li>
+                            <li>不支持其他浏览器</li>
+                            <li><strong>默认导入设置：</strong></li>
+                            <li>枢轴：底部居中</li>
+                            <li>纹理分辨率：当前最大值</li>
+                            <li>自动材质分配：已启用</li>
+                            <li>自动场景放置：已启用</li>
+                            <h3>分步安装</h3>
+                            <p><strong>步骤 1：</strong></p>
+                            <li>前往<a href="https%3A%2F%2Fstudio.tripo3d.com%2F" target="_blank"> </a><a
+                                    href="https%3A%2F%2Fstudio.tripo3d.com%2F" target="_blank"><strong>Tripo
+                                        Studio</strong></a><a href="https%3A%2F%2Fstudio.tripo3d.com%2F"
+                                    target="_blank"> </a>并下载<strong>Tripo3D Maya Bridge</strong> 包。</li>
+                            <li>解压 ZIP 文件。</li>
+                            <img src="images/help/HvPmbzLxFoMY37xgzdlcNSkFncL.webp" alt="" loading="lazy"><br>
+                            <p><strong>步骤 2：</strong></p>
+                            <li>将 `install.mel` 文件直接拖入 Maya 视口。插件将自动安装。</li>
+                            <img src="images/help/Xb6lbnxiDoZL3axS2zocCY8Rnic.webp" alt="" loading="lazy"><br>
+                            <li>安装后，该插件可在 <strong>Maya 工具架</strong>上找到。</li>
+                            <img src="images/help/JFzFbuyb6oaiXTxOU6DcL65lnUc.webp" alt="" loading="lazy"><br>
+                            <p><strong>步骤 3：</strong></p>
+                            <li>打开 <strong>Tripo Studio</strong> 网站，点击<strong>DCC Bridge</strong> 按钮，并激活 Maya 插件。</li>
+                            <li>确认连接设置正确。</li>
+                            <img src="images/help/ANzBb1orKoccSyxFNbhcG5UInQd.webp" alt="" loading="lazy"><br>
+                            <li>在迷你窗口中按下 <strong>导出</strong>按钮。</li>
+                            <li>如果您想导出动画，在<strong>导出面板</strong>中选择您要导出的动画，然后点击<strong>发送至</strong> 发送到指定的软件。</li>
+                            <li>由于 Maya 处理动画的方式，建议每个模型只导出一个动画。</li>
+                            <img src="images/help/MUg6baOsvoPcfIxLvCrclP8NnNb.webp" alt="" loading="lazy"><br>
+                            <p><strong>步骤 4：</strong></p>
+                            <p>您现在可以在 Maya 中查看从网站发送的模型。</p>
+                            <img src="images/help/GrSab8z5XoEgXgx5ZBJc2hC5nIf.webp" alt="" loading="lazy"><br>
+                            <h3>常见问题</h3>
+                            <p><strong>问：</strong> 我可以同时向多个 Maya 传输数据吗？</p>
+                            <p><strong>答：</strong> 不可以。连接仅识别第一个启动的 Maya 实例。如果您遇到“端口 xxx 已在使用中”等错误，请确保只有一个 Maya
+                                实例正在运行，然后重新启动应用程序。</p>
+                            <p><strong>问：</strong> 如何卸载 Maya 插件？</p>
+                            <p><strong>答：</strong> 要卸载 Tripo3D Maya Bridge，只需将 `uninstall.mel` 文件拖入 Maya 视口。插件将自动移除。</p>
+                            <p><strong>问：</strong> 如果导入插件后找不到它，我该怎么办？</p>
+                            <p><strong>答：</strong> 请确保 Maya 已安装 Python 3 模块，并且您正在使用兼容的 Maya 版本。尝试卸载插件，重新启动
+                                Maya，然后重新安装最新版本的插件。</p>
+                            <p><strong>问：</strong> 如果模型导入 Maya 后变得非常大，该怎么办？</p>
+                            <p><strong>答：</strong> 前往“窗口 → 设置/首选项”。在设置中，将工作单位中的线性单位设为“米”。</p>
+                            <p>
+                                <grid cols="2">
+                            </p>
+                            <p>
+                                <column width="54">
+                            </p>
+                            <img src="images/help/QWrfbAx3Uo8PlBxLUyLco2jZnDc.webp" alt="" loading="lazy"><br>
+                            <p>
+                                </column>
+                            </p>
+                            <p>
+                                <column width="45">
+                            </p>
+                            <img src="images/help/CnhYbxhLYoeAy5xLbhDciwO5nSc.webp" alt="" loading="lazy"><br>
+                            <p>
+                                </column>
+                            </p>
+                            <p>
+                                </grid>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item" id="plugin-bambu-studio"><button class="faq-question">Bambu Studio 插件教程<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner plugin-tutorial"><img
+                                src="images/help/Qw57bK1XaoqqbMx3kE4cvP8Hnfh.webp" alt="" loading="lazy"><br>
+                            <h3>介绍</h3>
+                            <p>Tripo Studio 支持将模型一键发送至 Bambu Studio。您不再需要手动下载、保存和导入3D模型文件。通过此功能，只需点击一下，Tripo AI 生成的 3D
+                                模型将跨越浏览器，直接出现在您的切片软件 (Bambu Studio) 中</p>
+                            <h3>前置准备</h3>
+                            <p>已安装软件：Bambu Studio （建议升级至新版以获得更佳兼容性）</p>
+                            <p>浏览器：建议使用Chrome、Edge 或 Safari</p>
+                            <h3>操作指南</h3>
+                            <p>第一步：选定您的模型：在Tripo Studio中，选择您自己的模型，或者选择 Gallery 里其他作者发布的模型</p>
+                            <img src="images/help/X3rXb2HDponbGCxObX3cULlhngd.webp" alt="" loading="lazy"><br>
+                            <img src="images/help/An3ibJ7i5o2KZvxIlESchF0mnwg.webp" alt="" loading="lazy"><br>
+                            <p>第二步：选择好模型后，点击底部的 3D 打印。选择，发送至 Bambu Studio （单色）</p>
+                            <img src="images/help/BslHbM8fhohWgRxuqUacEfhjnee.webp" alt="" loading="lazy"><br>
+                            <p>第三步：等待几秒，浏览器会弹出权限确认，点击确认。建议勾选“始终允许”，这样下次操作无需重复确认</p>
+                            <p>第四步：完成，Bambu Studio将自动打开，模型会出现在切片软件 (Bambu Studio) 中心</p>
+                            <img src="images/help/EtlWbvPMvoNztnxi6g4cs68bnzi.webp" alt="" loading="lazy"><br>
+                            <img src="images/help/XxIQb1MDeooVRwxaYKjcVsOMnDh.webp" alt="" loading="lazy"><br>
+                            <h3>常见问题</h3>
+                            <p><strong>问：我能否发送彩色模型至Bambu Studio</strong></p>
+                            <p>答：很遗憾，我们暂时还未支持一键将彩色模型发送至Bambu Studio。但您可以点击另一个选项“导出多色可打印文件”，再打开 Bambu Studio导入</p>
+                            <p><strong>问：发送至 Bambu Studio 的是模型的什么格式</strong></p>
+                            <p>答：是模型的3mf格式</p>
+                            <p><strong>问：为什么我点击了“发送至 Bambu Studio”没有反应</strong></p>
+                            <p>答：请确保您已在电脑上安装了官方版本的 Bambu Studio。如果已经安装，请在浏览器弹窗中勾选“始终允许 <a
+                                    href="https%3A%2F%2Fwww.tripo3d.com%2F" target="_blank"><text
+                                        underline="true">www.tripo3d.com</text></a>
+                                打开此类链接”。此外，请检查您的防火墙或安全软件是否拦截了自定义协议的唤醒</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="category-section" id="migration">
+                <h2 class="category-title">资产迁移</h2>
+                <div class="faq-item"><button class="faq-question">哪些用户可以进行资产迁移？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">如果你拥有国际版账号，并希望将资产迁移到国内版（studio.tripo3d.com）使用，即可申请。</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">哪些资产可以被迁移？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <ul>
+                                <li><strong>3D 模型：</strong>可迁移至中国版，但部分模型可能因安全审核策略被拦截（仍可下载到本地）</li>
+                                <li><strong>会员权益：</strong>国际版有效期内的订阅身份</li>
+                                <li><strong>会员积分：</strong>国际版单独购买的额外积分</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">迁移是必须的吗？不迁移会丢失资产吗？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">迁移不是强制的。即使不进行迁移，国际版资产仍会保留在原服务器中，不会丢失。</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">迁移的具体步骤是什么？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <ol>
+                                <li>登录中国版账号</li>
+                                <li>点击页面右上角"资产迁移"入口</li>
+                                <li>验证国际版账号权限（通过注册邮箱验证码登录）</li>
+                                <li>确认迁移清单，点击"开始迁移"（开始迁移后无法回退）</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">迁移需要多长时间？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <ul>
+                                <li>会员权益和积分：迁移完成后立即发放（约 1 分钟延迟）</li>
+                                <li>3D 模型：将在 <strong>7 个工作日内</strong>完成迁移</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">迁移完成后，国际版的资产会如何处理？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">迁移完成后，国际版的会员权益和积分将无法继续使用，但 3D 模型不会被删除，仍保留在国际版账号中。</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">迁移完成后，国际版的自动续费订阅会取消吗？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">会的。迁移完成后，国际版的自动续费订阅将自动取消。</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">过去一段时间无法访问，我的会员权益怎么办？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">我们已制定相应的补偿方案：<table class='info-table'>
+                                <thead>
+                                    <tr>
+                                        <th>执行迁移时有订阅</th>
+                                        <th>3月20日-4月30日有过订阅</th>
+                                        <th>补偿方案</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan='2'>是</td>
+                                        <td>是</td>
+                                        <td rowspan='2'>维持原会员权益至过期，额外赠送1个月原等级会员及对应积分</td>
+                                    </tr>
+                                    <tr>
+                                        <td>否</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan='3'>否</td>
+                                        <td>是（年费会员）</td>
+                                        <td>获赠1个月原会员权益及对应等级积分</td>
+                                    </tr>
+                                    <tr>
+                                        <td>是（月费会员）</td>
+                                        <td>获赠0.5个月原会员权益及对应等级积分&#215;0.5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>否</td>
+                                        <td>无补偿</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">完成迁移后，是否支持回退？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">不支持。迁移操作一旦完成，将无法撤销或回退。</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">迁移功能会一直可用吗？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">不会。迁移功能入口预计将在 <strong>2026年6月30日 24:00</strong>
+                            下线。届时尚未发起迁移的用户将无法再进行操作。</div>
+                    </div>
+                </div>
+            </section>
+            <section class="category-section" id="cooperation">
+                <h2 class="category-title">合作</h2>
+                <div class="faq-answer-inner" style="padding:20px 0">
+                    <ul>
+                        <li><strong>商务合作：</strong><a href="mailto:business@tripo3d.com">business@tripo3d.com</a></li>
+                        <li><strong>达人合作：</strong><a href="mailto:kolcollab@vastai3d.com">kolcollab@vastai3d.com</a>
+                        </li>
+                        <li><strong>大使合作：</strong><a href="mailto:ambassador@vastai3d.com">ambassador@vastai3d.com</a>
+                        </li>
+                        <li><strong>教育：</strong><a href="mailto:edu@vastai3d.com">edu@vastai3d.com</a></li>
+                        <li><strong>CMO 直达：</strong><a href="mailto:Sienna@vastai3d.com">Sienna@vastai3d.com</a></li>
+                    </ul>
+                </div>
+            </section>
+
+
+        </main>
+    </div>
+
+    <footer class="footer">
+        <p>仍有疑问？请联系 <a href="mailto:support@tripo3d.com">support@tripo3d.com</a></p>
+        <p style="margin-top:10px">Copyright 2024-2026 VAST. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // 更新折叠面板高度的函数
+        function updateAnswerHeight(answer) {
+            if (answer.parentElement.classList.contains('open')) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        }
+
+        document.querySelectorAll('.faq-question').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var item = this.parentElement, answer = item.querySelector('.faq-answer'), isOpen = item.classList.contains('open');
+                if (isOpen) {
+                    item.classList.remove('open');
+                    answer.style.maxHeight = null;
+                } else {
+                    item.classList.add('open');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+
+                    // 监听所有图片加载完成后重新计算高度
+                    var images = answer.querySelectorAll('img');
+                    images.forEach(function(img) {
+                        if (!img.complete) {
+                            img.addEventListener('load', function() {
+                                updateAnswerHeight(answer);
+                            });
+                        }
+                    });
+
+                    // 延迟再次更新，确保所有内容都渲染完成
+                    setTimeout(function() {
+                        updateAnswerHeight(answer);
+                    }, 100);
+                }
+            });
+        });
+
+        var navLinks = document.querySelectorAll('.nav-link');
+        document.querySelectorAll('.category-section').forEach(function (s) {
+            new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (e.isIntersecting) {
+                        navLinks.forEach(function (l) { l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id) });
+                    }
+                });
+            }, { rootMargin: '-20% 0px -70% 0px' }).observe(s);
+        });
+
+        navLinks.forEach(function (link) {
+            link.addEventListener('click', function (e) {
+                var t = document.getElementById(this.getAttribute('href').substring(1));
+                if (t) {
+                    e.preventDefault();
+                    window.scrollTo({ top: t.offsetTop - 20, behavior: 'smooth' });
+                    history.pushState(null, null, this.getAttribute('href'));
+                }
+            });
+        });
+
+        // 支持从外部页面通过锚点跳转定位
+        if (window.location.hash) {
+            var target = document.getElementById(window.location.hash.substring(1));
+            if (target) setTimeout(function () { window.scrollTo({ top: target.offsetTop - 20, behavior: 'smooth' }) }, 100);
+        }
+    </script>
+</body>
+
+</html>
