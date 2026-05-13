@@ -11,8 +11,8 @@
 
 | 素材 | 文件/值 | 说明 |
 |------|---------|------|
-| Logo | `vast.png` | 横版白色文字+黄色T图标，用于页面顶部导航栏，深色背景 |
-| Favicon | `1280X1280.PNG` | 正方形图标，用于浏览器标签页小图标 |
+| Logo | 内嵌 SVG | 页面顶部导航栏，深色背景，代码内嵌无需外部文件 |
+| Favicon | 内嵌 SVG | 浏览器标签页小图标，代码内嵌无需外部文件 |
 | 品牌主色 | `#F9CF00` | 按钮、链接、高亮、导航 active 状态、分类小标题 |
 | 页面底色 | `#000000` | 全黑背景 |
 | 卡片/区块背景 | `#1a1a1a` | FAQ 卡片、侧边栏 hover |
@@ -108,7 +108,7 @@ vX.Y  X=大版本  Y=小版本
 
 ```
 □ Step 1: 复述需求 — 告诉用户"这次改什么、不改什么"，等确认
-□ Step 2: 修改代码 — 在 index.html 中执行修改
+□ Step 2: 修改代码 — 在 help.html 中执行修改
 □ Step 3: 自检 — 确认修改正确、未破坏其他功能
 □ Step 4: Git commit — 提交，commit message 格式：
           "vX.Y: 简要描述改了什么"
@@ -151,19 +151,24 @@ vX.Y  X=大版本  Y=小版本
 
 ```
 tripo-help-center/
-├── index.html          # 主页面（唯一需要部署的文件）
-├── vast.png            # Logo（1320x311，透明背景，白字+黄T）
-├── 1280X1280.PNG       # Favicon 源文件（正方形，黄T+黑边）
-├── favicon.ico         # [待生成] 从 1280X1280.PNG 转换
-└── helpcenter-skill.md # 本规范文档（不需要部署）
+├── help.html               # 主页面（唯一需要部署的 HTML 文件）
+├── images/
+│   └── help/               # FAQ 内容图片（148 张 WebP 格式）
+│       ├── *.webp          # 插件教程、功能说明等配图
+│       └── ...
+└── helpcenter-skill.md     # 本规范文档（不需要部署）
 ```
+
+**说明**：
+- Logo 和 Favicon 已内嵌在 `help.html` 中，无需外部文件
+- 所有图片使用 WebP 格式，路径为 `images/help/*.webp`
 
 ---
 
 ## 五、部署说明（给开发的）
 
-1. 将 `index.html`、`vast.png`、`favicon.ico` 部署到服务器
-2. 配置路由：`/help` 指向 `index.html`
+1. 将 `help.html` 和 `images/` 目录部署到服务器
+2. 配置路由：`/help` 指向 `help.html`
 3. 不需要任何后端服务、数据库或 API
 4. 站内两处链接替换：
    - 插件使用 → `/help#api`
