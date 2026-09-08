@@ -13,11 +13,12 @@
         :root {
             --primary: #F9CF00;
             --primary-hover: #ffe55c;
-            --bg-dark: #0C0D10;
-            --bg-card: rgba(255, 255, 255, 0.05);
+            --bg-dark: #000000;
+            --bg-card: #1a1a1a;
             --bg-search: #242424;
-            --text-main: #F2F2F2;
-            --text-muted: rgba(255, 255, 255, 0.4);
+            --text-main: #ffffff;
+            --text-sub: #cccccc;
+            --text-muted: #999999;
             --border-color: #333333;
         }
 
@@ -65,20 +66,20 @@
         }
 
         .hero {
-            padding: 70px 20px 50px;
+            padding: 70px 20px 24px;
             text-align: center;
             background: var(--bg-dark);
         }
 
         .hero h1 {
             font-size: 36px;
-            margin-bottom: 24px;
+            margin-bottom: 0;
         }
 
         .container {
             max-width: 1060px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 24px 20px 40px;
             display: grid;
             grid-template-columns: 240px 1fr;
             gap: 40px;
@@ -170,7 +171,7 @@
 
         .faq-answer-inner {
             padding: 0 20px 18px;
-            color: rgba(255, 255, 255, 0.6);
+            color: var(--text-sub);
             font-size: 14px;
         }
 
@@ -185,7 +186,7 @@
         }
 
         .faq-answer-inner strong {
-            color: #eee;
+            color: var(--text-main);
         }
 
         .faq-answer-inner img {
@@ -215,7 +216,7 @@
         }
 
         table.info-table td {
-            color: rgba(255, 255, 255, 0.6);
+            color: var(--text-sub);
         }
 
         .placeholder-image {
@@ -312,17 +313,6 @@
             color: var(--primary);
         }
 
-        .no-results {
-            display: none;
-            text-align: center;
-            padding: 40px;
-            color: var(--text-muted);
-            font-size: 16px;
-            background: var(--bg-card);
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-
         .footer {
             text-align: center;
             padding: 40px 20px;
@@ -368,7 +358,6 @@
                 <a href="#features" class="nav-link">功能咨询</a>
                 <a href="#privacy" class="nav-link">隐私与政策</a>
                 <a href="#api" class="nav-link">API 与插件</a>
-                <a href="#migration" class="nav-link">资产迁移</a>
                 <a href="#cooperation" class="nav-link">合作</a>
             </nav>
         </aside>
@@ -388,22 +377,22 @@
                 <div class="faq-item"><button class="faq-question">Tripo有哪些功能？<span
                             class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Tripo 提供一整套由 AI 驱动的 3D 创作工具：<br><br><strong>核心生成能力</strong>
+                        <div class="faq-answer-inner">Tripo 提供一整套由 AI 驱动的 3D 创作工具，覆盖从新手到专业用户的完整创作流程：<br><br><strong>核心生成能力</strong>
                             <ul>
                                 <li>文本生成 3D：通过自然语言描述直接生成 3D 模型</li>
                                 <li>图片生成 3D：将单张图片或草图转换为 3D 资产</li>
                                 <li>多视图生成 3D：基于 2–4 张参考图生成更高精度的 3D 模型</li>
                             </ul><strong>支持不同行业需求</strong>
                             <ul>
-                                <li>高精度模型：最高支持 200 万面，适用于 3D 打印与视觉艺术</li>
-                                <li>智能拓扑网络：2 秒极速生成干净、规范的布线</li>
+                                <li>高精度模型：最高支持 200 万面，细节丰富，适用于 3D 打印与视觉艺术</li>
+                                <li>智能网格：2 秒极速生成干净、规范的布线，可直接用于游戏与 Web 3D 应用</li>
                             </ul><strong>3D全流程覆盖</strong>
                             <ul>
-                                <li>专业级3D生图：平台内集成顶级 AI 生图模型</li>
-                                <li>纹理生成与编辑：自动生成高质量材质贴图，支持二次编辑</li>
-                                <li>部件智能拆分：自动识别并拆分模型为独立部件</li>
-                                <li>重拓扑：支持自定义面数，一键减面或切换为四边面</li>
-                                <li>绑骨与动画：一键添加标准骨骼结构</li>
+                                <li>模型生成：上传图片后自动生成高精度 3D 模型或智能网格</li>
+                                <li>纹理生成与编辑：自动为模型生成高质量的材质贴图，并支持用户进行二次编辑和调整</li>
+                                <li>部件智能拆分：自动识别并拆分模型为独立部件，便于后期精细化修改</li>
+                                <li>重拓扑：支持自定义面数，一键将模型减面为低模或切换为四边面，适配不同管线需求</li>
+                                <li>绑骨与动画：一键为生成的角色模型添加标准的骨骼结构，可直接用于动画制作</li>
                             </ul>
                         </div>
                     </div>
@@ -416,8 +405,8 @@
                                 <li>访问平台：前往 <a href='https://studio.tripo3d.com/' target='_blank'>studio.tripo3d.com</a>
                                     注册/登录</li>
                                 <li>选择模式：文生3D（输入描述）或图生3D（上传照片/草图）</li>
-                                <li>生成模型：点击"生成"——AI 在 10 秒至 2 分钟内完成建模</li>
-                                <li>优化编辑：使用"编辑"功能进行自动骨骼绑定、网格精修或提升纹理分辨率</li>
+                                <li>生成模型：点击"生成"——根据复杂度，AI 在 10 秒至 2 分钟内完成建模</li>
+                                <li>优化编辑：根据需要使用部件拆分、重拓扑、纹理编辑、绑骨和动画以进一步优化你的模型</li>
                                 <li>导出使用：选择格式（GLB/FBX/OBJ）下载完整 PBR 贴图包</li>
                             </ul>
                         </div>
@@ -426,13 +415,13 @@
                 <div class="faq-item"><button class="faq-question">Tripo 支持哪些 3D 文件格式？<span
                             class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Tripo 目前支持 6 种导出格式：<ul>
+                        <div class="faq-answer-inner">Tripo 目前支持 6 种导出格式，覆盖不同应用场景：<ul>
                                 <li><strong>GLB</strong> – 适用于 Web、AR/VR 和游戏引擎（内嵌纹理）</li>
-                                <li><strong>USD</strong> – 通用场景描述格式，适用于影视特效、动画</li>
+                                <li><strong>USD</strong> – 通用场景描述格式，适用于影视特效、动画和协同工作流</li>
                                 <li><strong>FBX</strong> – 游戏和 3D 动画软件的行业标准</li>
                                 <li><strong>OBJ</strong> – 通用 3D 编辑和基础 3D 打印兼容性格式</li>
                                 <li><strong>STL</strong> – 3D 打印标准格式（仅几何体）</li>
-                                <li><strong>3MF</strong> – 新一代 3D 打印格式，支持色彩和纹理信息</li>
+                                <li><strong>3MF</strong> – 支持切片的现代 3D 打印格式</li>
                             </ul>
                         </div>
                     </div>
@@ -440,28 +429,18 @@
             </section>
             <section class="category-section" id="account">
                 <h2 class="category-title">账户设置</h2>
-                <div class="faq-item"><button class="faq-question">如何更改我的社区个人资料用户名？<span
+                <div class="faq-item"><button class="faq-question">如何更改我的个人资料用户名？<span
                             class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">
+                        <div class="faq-answer-inner">您可以直接点击个人信息更新用户名。具体操作如下：
                             <ul>
-                                <li>登录 Tripo 账户，点击右上角头像</li>
+                                <li>登录 Tripo 账户，点击右上角头像（个人资料图片）</li>
                                 <li>在下拉菜单中选择 "个人信息"</li>
-                                <li>点击当前用户名旁的 "编辑" 按钮</li>
+                                <li>点击当前用户名旁的 "&#9999;&#65039;" 图标</li>
                                 <li>输入新的用户名</li>
                                 <li>点击 "保存更改" – 如果用户名可用，将立即生效</li>
                             </ul>
                         </div>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-question">如何注销账号？<span class="faq-icon">&#9660;</span></button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">如需<strong>永久删除</strong> Tripo 账号及所有相关数据，请发送邮件至 <a
-                                href='mailto:support@tripo3d.com'>support@tripo3d.com</a>，提供：<ol>
-                                <li>邮件主题填写"账号注销申请"</li>
-                                <li>您的账号注册手机号</li>
-                                <li>确认您了解所有数据将被永久删除且无法恢复</li>
-                            </ol><strong>注意：如果您有正在进行的订阅，请先取消订阅以避免后续扣款。我们将在 7 个工作日内处理。</strong></div>
                     </div>
                 </div>
                 <div class="faq-item"><button class="faq-question">我可以通过验证码登录 Tripo 吗？<span
@@ -474,8 +453,8 @@
                                     并点击"登录"</li>
                                 <li>选择"手机号登录" &#8594; "验证码登录"</li>
                                 <li>输入您注册时使用的手机号码</li>
-                                <li>查收短信中的 6 位数字验证码（有效期五分钟）</li>
-                                <li>输入验证码即可进入</li>
+                                <li>查收短信中的 6 位数字验证码（有效期通常为五分钟）</li>
+                                <li>输入验证码即可立即进入账户</li>
                             </ul><strong>安全提示：</strong>验证码出于安全考虑会在短时间后失效，如过期请重新获取。如 2 分钟内未收到验证码，请检查垃圾短信。
                         </div>
                     </div>
@@ -487,87 +466,83 @@
                 <div class="faq-item"><button class="faq-question">哪个 Tripo AI 订阅方案适合我？<span
                             class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">如果您是初次探索 AI
-                            3D建模，可以从免费计划开始。如果您需要商业用途、私有资产和更高质量的输出，请根据使用量和生产需求升级到尝鲜版或专业版。</div>
+                        <div class="faq-answer-inner">如果您是初次探索 AI 3D
+                            建模，可以先从免费版开始体验基础生成能力。<br><br>如果您需要更高的每月积分额度、更快的生成效率、更多并发任务、私有模型、商业用途、批量生成、DCC Bridge
+                            或高级生产工具包等能力，可以根据实际使用量和生产需求选择适合的付费套餐。具体套餐权益请以订阅/定价页面实时展示为准。</div>
                     </div>
                 </div>
-                <div class="faq-item"><button class="faq-question">你们提供哪些价格和订阅方案？<span
+                <div class="faq-item"><button class="faq-question">你们提供哪些价格和订阅方案？是否支持月度/年度订阅？<span
                             class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">我们提供四种订阅方案，皆支持月度与年度订阅：<table class='info-table'>
-                                <thead>
-                                    <tr>
-                                        <th>套餐</th>
-                                        <th>每月积分</th>
-                                        <th>月付价格</th>
-                                        <th>年付价格</th>
-                                        <th>专属功能</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>基础版</strong></td>
-                                        <td>300</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td style='text-align:left'>保存1天历史记录 / 存储20个模型 / 有限模型导出（每月15次V2.5模型下载）</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>尝鲜版</strong></td>
-                                        <td>750</td>
-                                        <td>&#165;40/月</td>
-                                        <td>&#165;430/年</td>
-                                        <td style='text-align:left'>保存3天历史记录 / 存储无限制 / 45次模型下载 / 导出带骨骼的模型</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>专业版</strong></td>
-                                        <td>3000</td>
-                                        <td>&#165;150/月</td>
-                                        <td>&#165;1440/年</td>
-                                        <td style='text-align:left'>保存7天历史记录 / 存储无限制 / 无限制模型下载 / 导出带骨骼的模型 / 批量导出</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>旗舰版</strong></td>
-                                        <td>25000</td>
-                                        <td>&#165;685/月</td>
-                                        <td>&#165;6165/年</td>
-                                        <td style='text-align:left'>永久保存历史记录 / 存储无限制 / 无限制模型下载 / 导出带骨骼的模型 / 批量导出</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="faq-answer-inner">我们目前提供免费版、尝鲜版、专业版和旗舰版，均支持按月、按年订阅，部分套餐会根据官网活动展示首月优惠或续费价格。不同套餐在每月积分、并发任务、队列优先级、私有模型/商业用途、批量生成、DCC
+                            Bridge、模型编辑历史、导出能力和高级生产工具包等权益上有所区别。<br><br>由于价格、优惠和权益可能随活动或版本更新调整，请以页面实时展示为准。您可以登录 Tripo Studio
+                            后，点击页面右上角的"升级"或积分余额，进入订阅/定价页面查看当前可用套餐、价格及权益。</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">连续包月和单月购买有什么区别？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">连续包月会按月自动续费，通常适合希望持续使用 Tripo 的用户，可在当前周期结束前取消自动续费。单月购买为一次性付费，到期后不会自动续费。
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">订阅后可以升级套餐吗？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <ul>
+                                <li><strong>支持升级类型：</strong>低档套餐&#8594;高档套餐、短周期&#8594;长周期（月转年）、一次性订阅&#8594;连续包</li>
+                                <li><strong>费用规则：</strong>系统自动抵扣当前套餐剩余价值，仅需按页面提示补付差价</li>
+                                <li><strong>积分说明：</strong>原有积分全部保留，新套餐对应差值积分将同步补发至账户</li>
+                                <li><strong>操作方式：</strong>支持一键升级，支付时请避免页面停留过久，以免订单超时</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">可以降级或更换订阅类型吗？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">当前暂不支持在订阅周期内直接降级，或从连续包月切换为单月购买。如需更换为较低档位或单月购买，可先取消当前自动续费，待当前权益周期结束后重新选择套餐。
                         </div>
                     </div>
                 </div>
                 <div class="faq-item"><button class="faq-question">为什么我的月度积分没有达到宣传的全部额度？<span
                             class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">
+                        <div class="faq-answer-inner">如您的积分余额低于宣传额度，通常是由于以下原因：
                             <ul>
                                 <li><strong>已消耗部分：</strong>请查看使用记录——您可能已在当前周期内使用了部分积分</li>
-                                <li><strong>系统延迟：</strong>订阅确认后积分可能需要 5-10 分钟才会显示</li>
-                            </ul>如要核实，请查看 &#9889; 积分 &#8594; 我的方案。
+                                <li><strong>系统延迟：</strong>订阅确认后积分可能需要 5–10 分钟才会显示</li>
+                            </ul>如要核实确切的积分分配和账单周期日期，请查看 &#9889; 积分 &#8594; 我的方案。
                         </div>
                     </div>
                 </div>
                 <div class="faq-item"><button class="faq-question">已经付款，但账户仍显示免费版？<span
                             class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">
+                        <div class="faq-answer-inner">如果您已完成付款但账号仍显示免费版：
                             <ul>
-                                <li>等待 5 分钟后刷新页面</li>
-                                <li>退出后重新登录</li>
-                                <li>检查邮箱中的支付收据</li>
-                                <li>如 10 分钟后仍未生效，请将支付收据截图和账号邮箱发送至 <a
+                                <li><strong>等待 5 分钟</strong>后刷新页面——支付同步可能需要一些时间</li>
+                                <li><strong>退出后重新登录</strong>，强制刷新会话</li>
+                                <li><strong>检查支付宝账单</strong>，确认扣款是否成功</li>
+                                <li>如果 10 分钟后仍未生效，请将支付收据截图和注册手机号截图发送至 <a
                                         href='mailto:support@tripo3d.com'>support@tripo3d.com</a></li>
                             </ul>
                         </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">如何取消订阅？<span class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">如您通过支付宝订阅，可在支付宝内取消自动续费：进入"支付设置" &#8594; "自动续费/免密支付" &#8594; 找到带 Tripo logo
+                            的服务 &#8594; 点击"关闭服务"。<br><br>取消后，当前权益会继续有效至本周期结束，后续不再自动扣款。如需更多帮助，请联系 <a
+                                href='mailto:support@tripo3d.com'>support@tripo3d.com</a>。</div>
                     </div>
                 </div>
                 <div class="sub-title">支付</div>
                 <div class="faq-item"><button class="faq-question">Tripo AI 支持哪些支付方式？<span
                             class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Tripo AI 接受支付宝支付，后续会拓展更多支付形式。</div>
+                        <div class="faq-answer-inner">国内版 Tripo 当前支持支付宝支付。后续如支持更多支付方式，请以支付页面实际展示为准。</div>
                     </div>
                 </div>
                 <div class="faq-item"><button class="faq-question">Tripo 如何确保支付信息的安全？<span
@@ -579,22 +554,36 @@
                 <div class="sub-title">发票</div>
                 <div class="faq-item"><button class="faq-question">如何下载发票？<span class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">进入 &#9889;积分 &#8594; 管理订阅 &#8594; 账单记录 &#8594; 下载 invoice，不支持 VAT
-                            或国内增值税发票。<br><br>您可以在支付宝账单详情页面自助开具下载发票，如下图所示：<br><img
+                        <div class="faq-answer-inner">如您通过支付宝完成支付，可在支付宝账单详情页面自助申请并下载发票。<br><br><strong>操作路径：</strong>打开支付宝
+                            &#8594; 找到对应 Tripo 付款账单 &#8594; 进入账单详情 &#8594; 点击"开发票"，按页面提示填写并提交开票信息。<br><br>下方截图仅供参考，具体页面以支付宝实际展示为准：<br><img
                                 src="images/help/O4rtbSAWiocRk9xKntVcYbr7n6b.webp" alt="" loading="lazy"><img
                                 src="images/help/TF15bld4lobbXrxBhqgcwJpfnJf.webp" alt="" loading="lazy"></div>
                     </div>
                 </div>
                 <div class="sub-title">退款</div>
-                <div class="faq-item"><button class="faq-question">在哪些情况下可以获得退款？<span
+                <div class="faq-item"><button class="faq-question">在哪些情况下可以获得退款 / 我如何申请退款？<span
                             class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">满足以下<strong>全部条件</strong>可申请退款：<ul>
+                        <div class="faq-answer-inner">取消订阅不会自动退款，仅表示当前周期结束后不再续费。如需申请退款，请通过客服邮箱联系 <a
+                                href='mailto:support@tripo3d.com'>support@tripo3d.com</a>，并按退款规则提交审核。<br><br>我们理解用户可能会因误操作产生订单，因此在满足以下<strong>全部条件</strong>的情况下，您可以申请退款：<br><br><strong>误购退款条件（需同时满足）：</strong>
+                            <ul>
                                 <li>订单为误操作购买</li>
                                 <li>在购买后 <strong>24 小时内</strong>提出申请</li>
-                                <li>账户内<strong>未发生任何 credits 使用</strong></li>
-                            </ul><strong>退款申请方式：</strong>请发邮件至 <a
-                                href='mailto:support@tripo3d.com'>support@tripo3d.com</a>，提供账户邮箱、订单号、退款原因。<br><br><strong>重要说明：</strong>退款将依据法律法规及第三方支付平台规则审核，一旦完成将无法撤销。
+                                <li>账户内<strong>未发生任何积分使用</strong></li>
+                            </ul><strong>其他可退款情况：</strong>
+                            <ul>
+                                <li>如我们的产品或服务未符合官网已发布的相关条款与政策，您也可以申请退款</li>
+                            </ul><strong>退款申请方式：</strong>请通过客服邮箱联系 <a
+                                href='mailto:support@tripo3d.com'>support@tripo3d.com</a>，并提供以下信息，我们将在审核后尽快回复您：
+                            <ul>
+                                <li>账户邮箱</li>
+                                <li>订单号（可在支付确认邮件中查看）</li>
+                                <li>退款原因（如误操作购买，或服务未符合条款）</li>
+                            </ul><strong>重要说明：</strong>
+                            <ul>
+                                <li>退款申请将依据<strong>相关法律法规及第三方支付平台规则</strong>进行审核，<strong>部分情况可能无法退款</strong></li>
+                                <li>一旦退款处理完成，<strong>将无法撤销或恢复</strong></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -606,41 +595,81 @@
                             class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">积分是 Tripo
-                            的内部货币。每次生成或编辑模型时，系统会根据模型复杂度和所选功能消耗相应积分。所有订阅方案均包含每月固定积分额度，如有额外需求可随时购买。</div>
+                            的内部使用额度。每次进行模型生成、编辑或使用增值能力时，系统会根据功能类型和所选配置消耗相应积分，具体消耗规则请以当前页面展示为准。<br><br>所有订阅方案均包含每月固定积分额度。如有额外需求，您也可以根据需要购买额外积分。未使用的月度订阅积分不会累计到下个月，<strong>网页端积分不等于
+                                API 积分</strong>。<table class='info-table'>
+                                <thead>
+                                    <tr>
+                                        <th style='white-space:nowrap'>特性</th>
+                                        <th style='white-space:nowrap'>积分</th>
+                                        <th>增值服务（可选）</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style='white-space:nowrap'>生成</td>
+                                        <td>25</td>
+                                        <td style='text-align:left'>Ultra（+15）、分部件生成（+30）、纹理生成（+10）、高清纹理（+10）、四边面（+5）、智能低模（+20）
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style='white-space:nowrap'>部件拆分</td>
+                                        <td>40</td>
+                                        <td style='text-align:left'>部件补全（+5/部件）</td>
+                                    </tr>
+                                    <tr>
+                                        <td style='white-space:nowrap'>重拓扑</td>
+                                        <td>5</td>
+                                        <td style='text-align:left'>四边形网格（+5）、智能低模（+30）</td>
+                                    </tr>
+                                    <tr>
+                                        <td style='white-space:nowrap'>贴图生成</td>
+                                        <td>10</td>
+                                        <td style='text-align:left'>风格参考（+5）、PBR（+5）、高清贴图（+10）</td>
+                                    </tr>
+                                    <tr>
+                                        <td style='white-space:nowrap'>自动绑定</td>
+                                        <td>20</td>
+                                        <td style='text-align:left'>-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
                 <div class="faq-item"><button class="faq-question">如何购买积分？<span class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            <ul>
-                                <li>登录 <a href='https://studio.tripo3d.com/'
-                                        target='_blank'>studio.tripo3d.com</a>，点击顶部导航栏的 "积分"</li>
-                                <li>点击积分余额旁的 "购买" 按钮</li>
-                                <li>选择适合您的积分包或订阅套餐</li>
-                                <li>通过支付宝完成支付</li>
-                                <li>支付成功后，积分立即到账</li>
-                            </ul>企业批量采购请联系 <a href='mailto:business@vastai3d.com'>business@vastai3d.com</a>。
+                        <div class="faq-answer-inner">登录 <a href='https://studio.tripo3d.com/'
+                                target='_blank'>studio.tripo3d.com</a> 后，点击页面中的积分余额或"升级"入口，进入积分/订阅页面。<br><br>您可以根据页面展示选择适合的积分包或订阅套餐，并按照页面提示完成支付。支付成功后，积分通常会自动到账；如有延迟，请等待
+                            5–10 分钟后刷新页面或重新登录查看。<br><br>企业批量采购或商务合作可联系 <a
+                                href='mailto:business@vastai3d.com'>business@vastai3d.com</a>。
                         </div>
                     </div>
                 </div>
                 <div class="faq-item"><button class="faq-question">不同类型的积分是如何优先消耗的？<span
                             class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">优先消耗订阅积分，其次消耗购买的积分。系统会优先使用月底即将过期的月度订阅额度，再动用有效期更长的购买积分。</div>
+                        <div class="faq-answer-inner">优先消耗免费积分，随后是订阅积分，最后是额外购买的永久积分。系统会优先使用月底即将过期的月度订阅额度，再动用有效期更长的购买积分，避免您的资产浪费。</div>
                     </div>
                 </div>
                 <div class="sub-title">积分重置</div>
                 <div class="faq-item"><button class="faq-question">我的积分什么时候会重置？<span
                             class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">月度订阅积分在每月的计费日重置。例如 3 月 15 日订阅，积分将在每月 15 日重置。上一周期未使用的月度积分不会结转。
+                        <div class="faq-answer-inner">如您购买的是自动续费套餐，您的月度订阅积分在每月的计费日重置。例如，如果您在 3 月 15 日订阅，积分将在每月 15
+                            日重置。上一周期未使用的月度积分不会结转——新积分发放时旧的将被清零。
                         </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question">单独年付、连续包年套餐的积分是一次性发放还是按月发放？<span
+                            class="faq-icon">&#9660;</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">积分按月发放，不会一次性发放全年积分。系统会在每个账单周期开始时自动发放当月积分。</div>
                     </div>
                 </div>
                 <div class="faq-item"><button class="faq-question">我的积分会过期吗？<span
                             class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">
+                        <div class="faq-answer-inner">Tripo 有<strong>三种积分</strong>，过期规则不同：
                             <table class='info-table'>
                                 <thead>
                                     <tr>
@@ -653,15 +682,20 @@
                                     <tr>
                                         <td>月度订阅积分</td>
                                         <td><strong>会</strong></td>
-                                        <td>每月计费日重置，未用完不结转</td>
+                                        <td>每月计费日重置，未用完的不结转</td>
                                     </tr>
                                     <tr>
                                         <td>单独购买的额外积分</td>
                                         <td><strong>不会</strong></td>
                                         <td>永久有效，用完为止</td>
                                     </tr>
+                                    <tr>
+                                        <td>免费积分</td>
+                                        <td><strong>会</strong></td>
+                                        <td>每月 1 号自动重置刷新</td>
+                                    </tr>
                                 </tbody>
-                            </table>如果订阅过期或取消，所有未使用的月度订阅积分将被清零。但单独购买的额外积分永久保留。
+                            </table>如果订阅过期或被取消，<strong>所有未使用的月度订阅积分将被清零</strong>。但您单独购买的额外积分将永久保留在账户中。
                         </div>
                     </div>
                 </div>
@@ -669,18 +703,20 @@
                 <div class="faq-item"><button class="faq-question">生成失败，积分还会被扣除吗？<span
                             class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">不会。仅在任务状态为"成功"时才扣除积分。如生成失败不消耗任何积分，可重新尝试。</div>
+                        <div class="faq-answer-inner">不会，仅在任务状态为"成功"时才会扣除积分。如生成失败，不会消耗任何积分。您可以重新尝试生成，如频繁失败请联系客服。</div>
                     </div>
                 </div>
                 <div class="faq-item"><button class="faq-question">积分丢失了 / 没有收到积分怎么办？<span
                             class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">
+                        <div class="faq-answer-inner">如果积分异常消失：
                             <ol>
-                                <li>检查是否为月度积分重置</li>
-                                <li>查看使用记录（&#9889; 图标）</li>
-                                <li>购买积分未到账——等待 5 分钟并刷新</li>
-                                <li>如仍有问题，请发邮件至 <a href='mailto:support@tripo3d.com'>support@tripo3d.com</a></li>
+                                <li><strong>检查是否为月度积分重置</strong> — 月度订阅积分在每个计费日会清零</li>
+                                <li><strong>查看使用记录</strong> — 通过 &#9889; 图标检查是否有生成任务消耗了积分</li>
+                                <li><strong>如果是购买的额外积分未到账</strong> — 请等待 5 分钟并刷新页面。如仍未到账，请将支付收据发送至 <a
+                                        href='mailto:support@tripo3d.com'>support@tripo3d.com</a></li>
+                                <li><strong>如果以上都不适用</strong> — 请发邮件至 <a
+                                        href='mailto:support@tripo3d.com'>support@tripo3d.com</a>，附上您的账号邮箱和问题描述</li>
                             </ol>
                         </div>
                     </div>
@@ -720,10 +756,10 @@
                 <div class="faq-item"><button class="faq-question">为什么我的生成失败或卡住了？<span
                             class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">通常因提示词过于复杂或服务器暂时繁忙。<ol>
-                                <li>积分将在 1 小时内自动退还</li>
+                        <div class="faq-answer-inner">生成失败通常是因为提示词过于复杂或服务器暂时繁忙。如果卡住超过 15 分钟或提示失败：<ol>
+                                <li><strong>积分将在 1 小时内自动退还</strong> — 通过 &#9889; 图标查看会员的使用记录</li>
                                 <li>尝试简化描述或更换输入图片</li>
-                                <li>如 1 小时后积分仍未退还，请发邮件至 <a href='mailto:support@tripo3d.com'>support@tripo3d.com</a>
+                                <li>如果 1 小时后积分仍未退还，请发邮件至 <a href='mailto:support@tripo3d.com'>support@tripo3d.com</a>
                                     并附上模型链接</li>
                             </ol>
                         </div>
@@ -732,7 +768,7 @@
                 <div class="faq-item"><button class="faq-question">什么是智能网格？<span
                             class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">智能网格专为自动生成干净、优化的拓扑结构而设计：<ul>
+                        <div class="faq-answer-inner">智能网格专为自动生成干净、优化的拓扑结构而设计。它能够提供结构清晰的网格、均匀高效的面数分布，并输出适用于实时生产流程的模型结果。如果你从事游戏引擎或对性能要求较高的工作流，这个功能不容错过。<br><br><strong>智能网格带来：</strong><ul>
                                 <li>面向实时引擎的清晰结构化拓扑</li>
                                 <li>秒级生成游戏级网格</li>
                                 <li>保证视觉质量的同时实现轻量化</li>
@@ -745,11 +781,12 @@
                 <div class="faq-item"><button class="faq-question">Tripo 能为 3D 模型生成高质量贴图吗？<span
                             class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">是的。<ul>
-                                <li><strong>一键全局贴图：</strong>将空白模型转化为完全贴图的 3D 资产</li>
-                                <li><strong>AI 放大生成高清贴图：</strong>通过 AI 驱动的放大技术生成超高分辨率贴图</li>
-                                <li><strong>Magic Brush 局部修复：</strong>画笔涂抹修正缺陷、增强细节</li>
-                                <li><strong>PBR 材质：</strong>瞬间生成基于物理的贴图——基础颜色、法线、粗糙度等</li>
+                        <div class="faq-answer-inner">是的。Tripo 提供基于 AI 的贴图工具，可用于创建、增强和编辑贴图，使模型达到可用于生产的质量水平。<ul>
+                                <li><strong>一键全局贴图：</strong>将空白模型转化为完全贴图的 3D 资产，整个表面拥有统一的颜色、风格和材质</li>
+                                <li><strong>AI 放大生成高清贴图：</strong>通过 AI 驱动的放大技术生成超高分辨率的 3D
+                                    贴图。为高标准的生产流水线保留锐利的边缘、精细的表面细节和准确的材质</li>
+                                <li><strong>局部重绘：</strong>只需简单的画笔涂抹即可修正缺陷、增强细节或重绘小区域——由 AI 驱动且无缝衔接</li>
+                                <li><strong>PBR 材质，渲染就绪：</strong>瞬间生成基于物理的贴图——基础颜色、法线、粗糙度等——适用于实时引擎和离线渲染</li>
                             </ul>
                         </div>
                     </div>
@@ -758,12 +795,19 @@
                 <div class="faq-item"><button class="faq-question">是否可以上传已有的模型用于动画？<span
                             class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">可以。支持 GLB、OBJ、FBX、STL 格式。<ul>
+                        <div class="faq-answer-inner">可以。您可上传现有的 GLB、OBJ、FBX、STL 模型，使用 Tripo 的自动绑定功能生成骨骼绑定以用于动画。<br><br><strong>操作步骤：</strong>
+                            <ul>
                                 <li>进入 3D 工作台，点击上传 3D 模型</li>
-                                <li>选择模型文件（&#8804;100MB，面数&#8804;150万）</li>
-                                <li>上传后点击左侧菜单栏进入动画</li>
+                                <li>选择您的模型文件（&#8804;100MB，面数&#8804;150万）</li>
+                                <li>上传后，点击左侧菜单栏进入动画</li>
                                 <li>点击自动绑定生成骨骼</li>
-                                <li>下载带骨骼绑定的模型</li>
+                                <li>下载带骨骼绑定的模型，即可在游戏引擎或 DCC 软件中进行动画制作</li>
+                            </ul><strong>重要限制事项：</strong>
+                            <ul>
+                                <li>自动绑定当前仅支持 T pose 人形角色以及标准站立式四足动物</li>
+                                <li>非标准姿势、非人形生物或抽象形状可能无法正确绑定</li>
+                                <li>完成绑定后，你可以从动作库中选择动画，并在不同动作之间切换</li>
+                                <li>动画播放支持预览过程中暂停</li>
                             </ul>
                         </div>
                     </div>
@@ -771,10 +815,11 @@
                 <div class="faq-item"><button class="faq-question">Tripo 可以生成可用于动画的 3D 模型吗？<span
                             class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">是的。<ul>
-                                <li><strong>自动骨骼检测：</strong>为人类、动物和风格化角色找到正确的关节和骨骼</li>
-                                <li><strong>平滑蒙皮权重：</strong>AI 驱动的蒙皮确保自然运动</li>
-                                <li><strong>导出到任何工作流：</strong>FBX、GLB 或 OBJ，可用于 Blender、Maya、Unity、Unreal 或 Mixamo</li>
+                        <div class="faq-answer-inner">是的。Tripo 可以自动生成已完成绑定的模型，可直接用于动画制作和导出。<ul>
+                                <li><strong>自动骨骼检测：</strong>Tripo 为人类、动物和风格化角色找到正确的关节和骨骼——无需手动设置</li>
+                                <li><strong>平滑蒙皮权重，零麻烦：</strong>AI 驱动的蒙皮确保自然运动和精确变形，无需繁琐的权重绘制</li>
+                                <li><strong>导出到任何工作流：</strong>FBX、GLB 或 OBJ——您的绑定模型已准备好用于 Blender、Maya、Unity、Unreal 或 Mixamo
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -783,24 +828,26 @@
                 <div class="faq-item"><button class="faq-question">为什么我无法下载我的模型？<span
                             class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner"><strong>基础版仅支持V2.5模型的导出</strong>，如果您无法下载模型，请尝试：<ul>
-                                <li>确认任务状态显示为 "成功"（绿色对勾），仅生成完成后才提供下载</li>
-                                <li>清除浏览器缓存，或使用无痕模式</li>
-                                <li>确认积分充足</li>
-                                <li>超大模型（>100MB）建议非高峰时段下载</li>
-                                <li>暂时禁用广告拦截器或 VPN 扩展</li>
-                            </ul>如问题持续，请联系 <a href='mailto:support@tripo3d.com'>support@tripo3d.com</a>。</div>
+                        <div class="faq-answer-inner">不同套餐的模型导出能力可能有所不同，免费版/基础权益下的导出能力会受到一定限制，具体请以当前订阅/定价页面展示为准。<br><br>如果您无法下载模型，请先尝试以下排查：<ul>
+                                <li><strong>检查生成状态：</strong>确认任务状态显示为 "成功"（绿色对勾），仅生成完成后才提供下载</li>
+                                <li><strong>清除浏览器缓存：</strong>尝试清除缓存，或使用浏览器的无痕模式</li>
+                                <li><strong>检查积分：</strong>确认积分充足</li>
+                                <li><strong>文件大小：</strong>超大模型（&gt;100MB）在慢速网络下可能超时，建议在非高峰时段下载</li>
+                                <li><strong>禁用扩展：</strong>广告拦截器或 VPN 扩展可能干扰下载，请暂时禁用</li>
+                            </ul>如问题持续，请联系 <a href='mailto:support@tripo3d.com'>support@tripo3d.com</a> 并提供模型链接。</div>
                     </div>
                 </div>
                 <div class="faq-item"><button class="faq-question">如何将多个动画导出为一个文件（用于 Blender）？<span
                             class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">
+                        <div class="faq-answer-inner">Tripo 支持将带多个动画的绑定模型以 GLB 或 FBX 格式导出到单个文件中，两种格式均完全兼容
+                            Blender。<br><br><strong>操作流程：</strong>
                             <ul>
-                                <li>确保模型已应用自动绑定</li>
-                                <li>导出时选择 GLB（推荐）或 FBX</li>
-                                <li>确认 "包含动画" 开关已开启</li>
-                                <li>Blender 中：文件 &#8594; 导入 &#8594; GLTF 或 FBX，所有动画将作为独立 Actions 显示</li>
+                                <li><strong>先绑定骨骼：</strong>确保模型已应用自动绑定生成骨骼</li>
+                                <li><strong>选择格式：</strong>导出时选择 GLB（推荐）或 FBX——这两种格式支持多动画轨道/动作</li>
+                                <li><strong>启用动画：</strong>在导出设置中，确认 "包含动画" 或 "导出动画" 开关已开启</li>
+                                <li><strong>导入 Blender：</strong>在 Blender 中：文件 &#8594; 导入 &#8594; GLTF (.glb/.gltf) 或 FBX
+                                    (.fbx)，所有动画将作为独立的 Actions 显示在动作编辑器或 NLA 轨道中</li>
                             </ul>
                         </div>
                     </div>
@@ -821,18 +868,21 @@
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
                             <ul>
-                                <li><strong>付费用户：</strong>您对生成的所有 3D 模型拥有完整所有权和商用权。</li>
-                                <li><strong>免费用户：</strong>模型仅限个人非商业用途</li>
-                            </ul>取消订阅不影响所有权——您对付费期间生成的所有模型保留权利。
+                                <li><strong>付费用户：</strong>在您拥有输入素材合法权利、且遵守平台服务条款和适用法律法规的前提下，您可以将通过 Tripo 生成的模型用于商业用途。</li>
+                                <li><strong>免费用户：</strong>免费版生成的模型通常仅限个人非商业用途，具体以当前套餐权益及平台服务条款为准。</li>
+                                <li>取消订阅不影响您在付费期间已生成模型的既有权利，但后续使用仍需遵守平台条款和适用法律法规。</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
                 <div class="faq-item"><button class="faq-question">我可以将模型用于商业用途吗？<span
                             class="faq-icon">&#9660;</span></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">只要用于模型生成的源材料（如上传的图片或基于文本生成的概念）是属于您的，通过 Tripo 生成的所有 3D
-                            模型均可在法律法规允许的范围内被授权用于商业用途。由此生成模型的版权（如有）完全归属于您本人，Tripo
-                            不对任何输出模型的版权状态承担责任。<br><br>以下为我们服务条款中关于内容使用的相关摘录：<br><em>您上传至本服务平台的内容以及您使用本服务生成的内容，权利归您或依法享有该知识产权的权利人所有，您使用本服务不会对前述内容及本服务生成的内容的权利归属产生影响。请您在使用前述内容时，注意遵守相关法律规定。</em>
+                        <div class="faq-answer-inner">
+                            <ul>
+                                <li>付费用户在遵守平台服务条款、适用法律法规，并确保输入素材具有合法使用权的前提下，可以将通过 Tripo 生成的模型用于商业用途。</li>
+                                <li>免费版生成内容通常仅限个人非商业用途。具体可商用范围请以当前套餐权益及平台服务条款为准。</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -852,8 +902,8 @@
                     <div class="faq-answer">
                         <div class="faq-answer-inner">Tripo API 将文本和图像输入转换为高保真 3D 模型，为集成生成式 3D 功能到您的应用提供灵活解决方案。<br>
                             <ul>
-                                <li>快速开始：访问 <a href='https://platform.tripo3d.com/'
-                                        target='_blank'>platform.tripo3d.com</a> 查看设置指南和功能概述</li>
+                                <li>快速开始：访问 <a href='https://developers.tripo3d.com/'
+                                        target='_blank'>developers.tripo3d.com</a> 查看设置指南和功能概述</li>
                                 <li>开始构建：通过编程方式发送请求，直接在工作流中生成 3D 模型</li>
                             </ul>
                         </div>
@@ -1411,126 +1461,12 @@
                     </div>
                 </div>
             </section>
-            <section class="category-section" id="migration">
-                <h2 class="category-title">资产迁移</h2>
-                <div class="faq-item"><button class="faq-question">哪些用户可以进行资产迁移？<span
-                            class="faq-icon">&#9660;</span></button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">如果你拥有国际版账号，并希望将资产迁移到国内版（studio.tripo3d.com）使用，即可申请。</div>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-question">哪些资产可以被迁移？<span
-                            class="faq-icon">&#9660;</span></button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            <ul>
-                                <li><strong>3D 模型：</strong>可迁移至中国版，但部分模型可能因安全审核策略被拦截（仍可下载到本地）</li>
-                                <li><strong>会员权益：</strong>国际版有效期内的订阅身份</li>
-                                <li><strong>会员积分：</strong>国际版单独购买的额外积分</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-question">迁移是必须的吗？不迁移会丢失资产吗？<span
-                            class="faq-icon">&#9660;</span></button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">迁移不是强制的。即使不进行迁移，国际版资产仍会保留在原服务器中，不会丢失。</div>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-question">迁移的具体步骤是什么？<span
-                            class="faq-icon">&#9660;</span></button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            <ol>
-                                <li>登录中国版账号</li>
-                                <li>点击页面右上角"资产迁移"入口</li>
-                                <li>验证国际版账号权限（通过注册邮箱验证码登录）</li>
-                                <li>确认迁移清单，点击"开始迁移"（开始迁移后无法回退）</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-question">迁移需要多长时间？<span
-                            class="faq-icon">&#9660;</span></button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            <ul>
-                                <li>会员权益和积分：迁移完成后立即发放（约 1 分钟延迟）</li>
-                                <li>3D 模型：将在 <strong>7 个工作日内</strong>完成迁移</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-question">迁移完成后，国际版的资产会如何处理？<span
-                            class="faq-icon">&#9660;</span></button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">迁移完成后，国际版的会员权益和积分将无法继续使用，但 3D 模型不会被删除，仍保留在国际版账号中。</div>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-question">迁移完成后，国际版的自动续费订阅会取消吗？<span
-                            class="faq-icon">&#9660;</span></button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">会的。迁移完成后，国际版的自动续费订阅将自动取消。</div>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-question">过去一段时间无法访问，我的会员权益怎么办？<span
-                            class="faq-icon">&#9660;</span></button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">我们已制定相应的补偿方案：<table class='info-table'>
-                                <thead>
-                                    <tr>
-                                        <th>执行迁移时有订阅</th>
-                                        <th>3月20日-4月30日有过订阅</th>
-                                        <th>补偿方案</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td rowspan='2'>是</td>
-                                        <td>是</td>
-                                        <td rowspan='2'>维持原会员权益至过期，额外赠送1个月原等级会员及对应积分</td>
-                                    </tr>
-                                    <tr>
-                                        <td>否</td>
-                                    </tr>
-                                    <tr>
-                                        <td rowspan='3'>否</td>
-                                        <td>是（年费会员）</td>
-                                        <td>获赠1个月原会员权益及对应等级积分</td>
-                                    </tr>
-                                    <tr>
-                                        <td>是（月费会员）</td>
-                                        <td>获赠0.5个月原会员权益及对应等级积分&#215;0.5</td>
-                                    </tr>
-                                    <tr>
-                                        <td>否</td>
-                                        <td>无补偿</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-question">完成迁移后，是否支持回退？<span
-                            class="faq-icon">&#9660;</span></button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">不支持。迁移操作一旦完成，将无法撤销或回退。</div>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-question">迁移功能会一直可用吗？<span
-                            class="faq-icon">&#9660;</span></button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">不会。迁移功能入口预计将在 <strong>2026年6月30日 24:00</strong>
-                            下线。届时尚未发起迁移的用户将无法再进行操作。</div>
-                    </div>
-                </div>
-            </section>
             <section class="category-section" id="cooperation">
                 <h2 class="category-title">合作</h2>
                 <div class="faq-answer-inner" style="padding:20px 0">
                     <ul>
                         <li><strong>商务合作：</strong><a href="mailto:business@tripo3d.com">business@tripo3d.com</a></li>
-                        <li><strong>达人合作：</strong><a href="mailto:kolcollab@vastai3d.com">kolcollab@vastai3d.com</a>
+                        <li><strong>达人合作：</strong><a href="mailto:cathryn@vastai3d.com">cathryn@vastai3d.com</a>
                         </li>
                         <li><strong>大使合作：</strong><a href="mailto:ambassador@vastai3d.com">ambassador@vastai3d.com</a>
                         </li>
